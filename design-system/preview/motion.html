@@ -1,0 +1,35 @@
+<!doctype html>
+<!-- @dsCard group="Spacing" name="Motion · Easing" subtitle="ease-out default; bounce for spark" viewport="700x220" -->
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="_base.css"></head>
+<body>
+<div class="card" style="padding:18px 24px;">
+  <div class="label-small" style="margin-bottom:12px;">Motion · Easing &amp; Duration</div>
+  <div style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap:14px;">
+    <div style="border:1px solid var(--ink-100); border-radius:12px; padding:12px;">
+      <div style="font-family:var(--font-display); font-weight:700; font-size:13px; color:var(--ink-900);">ease-out</div>
+      <div style="font-family:var(--font-mono); font-size:10px; color:var(--ink-500); margin-bottom:8px;">cubic(0.22,1,0.36,1)</div>
+      <div style="background:var(--ink-50); height:8px; border-radius:4px; position:relative; overflow:hidden;">
+        <div style="position:absolute; left:0; top:0; bottom:0; width:30%; background:var(--blue-500); border-radius:4px; animation: a1 1.6s cubic-bezier(0.22,1,0.36,1) infinite alternate;"></div>
+      </div>
+      <div style="font-family:var(--font-mono); font-size:10px; color:var(--ink-500); margin-top:8px;">220ms · default</div>
+    </div>
+    <div style="border:1px solid var(--ink-100); border-radius:12px; padding:12px;">
+      <div style="font-family:var(--font-display); font-weight:700; font-size:13px; color:var(--ink-900);">in-out</div>
+      <div style="font-family:var(--font-mono); font-size:10px; color:var(--ink-500); margin-bottom:8px;">cubic(0.65,0,0.35,1)</div>
+      <div style="background:var(--ink-50); height:8px; border-radius:4px; position:relative; overflow:hidden;">
+        <div style="position:absolute; left:0; top:0; bottom:0; width:30%; background:var(--green-500); border-radius:4px; animation: a1 1.6s cubic-bezier(0.65,0,0.35,1) infinite alternate;"></div>
+      </div>
+      <div style="font-family:var(--font-mono); font-size:10px; color:var(--ink-500); margin-top:8px;">420ms · transitions</div>
+    </div>
+    <div style="border:1px solid var(--ink-100); border-radius:12px; padding:12px;">
+      <div style="font-family:var(--font-display); font-weight:700; font-size:13px; color:var(--ink-900);">bounce</div>
+      <div style="font-family:var(--font-mono); font-size:10px; color:var(--ink-500); margin-bottom:8px;">cubic(0.34,1.56,0.64,1)</div>
+      <div style="background:var(--ink-50); height:8px; border-radius:4px; position:relative; overflow:hidden;">
+        <div style="position:absolute; left:0; top:0; bottom:0; width:30%; background:var(--red-500); border-radius:4px; animation: a1 1.6s cubic-bezier(0.34,1.56,0.64,1) infinite alternate;"></div>
+      </div>
+      <div style="font-family:var(--font-mono); font-size:10px; color:var(--ink-500); margin-top:8px;">220ms · "spark" moments</div>
+    </div>
+  </div>
+</div>
+<style>@keyframes a1 { from { left:0; } to { left:70%; } }</style>
+</body></html>

@@ -1,0 +1,207 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+// AFRIMMAK — Privacy Policy.
+// Written to reflect the site AS IT EXISTS TODAY: the Contact form is UI-only
+// (no backend), so no personal data is actually stored yet. Sections describe
+// what WILL happen once a backend is wired up. See the inline {/* TODO */}
+// notes below for the specific decisions that must be confirmed before this
+// policy is legally solid.
+const lastUpdated = 'July 2026';
+---
+
+<BaseLayout
+  current=""
+  title="Privacy Policy — Afrimmak"
+  description="How Afrimmak handles the information you share through our website — what we collect, why, and your rights. A project of the Mendez Impact Foundation."
+>
+  <section class="page-head">
+    <div class="afr-container">
+      <div class="legal">
+        <div class="eyebrow">Legal</div>
+        <h1 class="legal__title">Privacy Policy</h1>
+        <p class="legal__updated">Last updated: {lastUpdated}</p>
+
+        <div class="legal__body">
+          <p class="lede">
+            This policy explains what information Afrimmak collects through this
+            website, why we collect it, and what you can do about it. We have
+            kept it plain and short, because that is the point.
+          </p>
+
+          <p>
+            Afrimmak is a project of the <strong>Mendez Impact Foundation</strong>,
+            based in Brusubi, West Coast Region, The Gambia. For anything in this
+            policy, the Foundation is responsible for your information and is your
+            point of contact.
+          </p>
+
+          {/* TODO (backend): The Contact form is currently UI-only with no
+              backend, so no data is submitted or stored anywhere yet. Once the
+              form is wired to a provider (Formspree or Supabase — to be
+              confirmed), update the two sections below with the provider name,
+              where data is stored/hosted, and any sub-processor details. */}
+          <h2>Where things stand right now</h2>
+          <p>
+            At the moment, our Contact form is not connected to anything. It does
+            not send or store your details — submitting it simply shows a notice
+            on the page. So today, we are not collecting or holding any personal
+            information through this site.
+          </p>
+          <p>
+            This will change once we connect the form to a service that can
+            deliver your message to us. The rest of this policy describes what
+            will happen then, so you know in advance. We will update the date at
+            the top when that goes live.
+          </p>
+
+          <h2>What we collect</h2>
+          <p>
+            Once the Contact form is live, we will collect only what the form
+            actually asks for:
+          </p>
+          <ul>
+            <li>your name;</li>
+            <li>your email address;</li>
+            <li>your phone or WhatsApp number, if you choose to add it (optional);</li>
+            <li>the message you write to us, including the topic you select.</li>
+          </ul>
+          <p>
+            We do not ask for anything else, and we would rather you did not put
+            sensitive personal details in a message to us.
+          </p>
+
+          <h2>Why we collect it</h2>
+          <p>
+            To reply to you. That is it — answering questions about the
+            competition, following up on partnership and funding enquiries,
+            responding to media requests, and hearing from people who want to
+            volunteer. We do not use your details for marketing, and we will not
+            add you to a mailing list unless we add that option later and you
+            clearly opt in.
+          </p>
+
+          <h2>Who sees it</h2>
+          <p>
+            Only the Afrimmak team, so we can respond to you. We do not sell your
+            information, and we do not share it with anyone else for their own
+            use.
+          </p>
+          {/* TODO (backend): Once a form provider is chosen, disclose that the
+              provider processes and stores submissions on our behalf as a
+              data processor, and link/name it here. */}
+          <p>
+            When the form goes live, your message will be handled on our behalf
+            by the third-party service we use to run the form and deliver it to
+            us. That provider will store your submission so we can read it. We
+            will name the provider here once it is chosen.
+          </p>
+
+          <h2>How long we keep it</h2>
+          <p>
+            {/* TODO (retention): No fixed retention period has been set. This is
+                a reasonable placeholder — confirm an actual period/policy. */}
+            For as long as we need it to respond to you and follow up properly,
+            or until you ask us to delete it — whichever comes first. If a
+            conversation goes nowhere, we clear it out.
+          </p>
+
+          <h2>Your rights</h2>
+          <p>
+            You can ask us at any time to:
+          </p>
+          <ul>
+            <li>tell you what information we hold about you;</li>
+            <li>correct anything that is wrong;</li>
+            <li>delete what we hold.</li>
+          </ul>
+          <p>
+            Just email <a href="mailto:info@afrimmak.org">info@afrimmak.org</a>
+            and we will sort it out. There is no charge for this.
+          </p>
+
+          <h2>Children's privacy</h2>
+          <p>
+            {/* TODO (children/age): The competition may involve students, and
+                the real minimum age / handling of under-16 data is a genuine
+                legal question tied to the programme's actual age range. This
+                paragraph assumes a "not directed at under-16s" stance — CONFIRM
+                the programme's age range and adjust before relying on this. */}
+            This website is not directed at children under 16, and we do not
+            knowingly collect information from them through it. If you believe a
+            child has sent us their details, contact us at
+            <a href="mailto:info@afrimmak.org">info@afrimmak.org</a> and we will
+            remove it.
+          </p>
+
+          <h2>Analytics and third parties</h2>
+          {/* TODO (analytics): There is currently NO analytics, NO cookies, and
+              NO third-party tracking on the site. If Plausible, Fathom, GA4, or
+              anything similar is added later, describe it here (what it
+              collects, whether it uses cookies, and how to opt out). */}
+          <p>
+            We currently use no analytics, no cookies, and no third-party
+            tracking on this site. Nothing follows you around, and nothing is
+            counting your visits. If that ever changes, we will describe exactly
+            what we have added, and update this section and the date above.
+          </p>
+
+          <h2>Changes to this policy</h2>
+          <p>
+            We may update this policy as Afrimmak grows and as the site gains new
+            features — most importantly, when the Contact form goes live. When we
+            do, we will change the "last updated" date at the top of this page.
+          </p>
+
+          <h2>Contact</h2>
+          <p>
+            Questions about your privacy, or a request about your information?
+            Email <a href="mailto:info@afrimmak.org">info@afrimmak.org</a> or
+            call +220 3869939. We are a real team and we will reply personally.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-head { padding-top: 156px; padding-bottom: 64px; background: var(--paper); }
+
+  .legal { max-width: 760px; margin: 0 auto; }
+  .legal__title {
+    font-family: var(--font-display); font-weight: 900;
+    font-size: clamp(34px, 4.4vw, 52px);
+    line-height: 1.06; letter-spacing: -0.02em;
+    margin: 8px 0 8px;
+    color: var(--ink-900);
+  }
+  .legal__updated {
+    font-family: var(--font-body); font-size: 14px;
+    color: var(--ink-500); margin: 0 0 8px;
+  }
+
+  .legal__body { margin-top: 24px; }
+  .legal__body .lede { margin: 0 0 8px; }
+  .legal__body h2 {
+    font-family: var(--font-display); font-weight: 800;
+    font-size: 22px; line-height: 1.25; letter-spacing: -0.01em;
+    color: var(--ink-900);
+    margin: 44px 0 12px;
+  }
+  .legal__body p {
+    font-family: var(--font-body); font-size: 16px; line-height: 1.75;
+    color: var(--ink-800); margin: 0 0 16px;
+  }
+  .legal__body ul {
+    margin: 0 0 16px; padding-left: 22px;
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .legal__body li {
+    font-family: var(--font-body); font-size: 16px; line-height: 1.7;
+    color: var(--ink-800);
+  }
+  .legal__body a { color: var(--blue-600); text-decoration: underline; text-underline-offset: 2px; }
+  .legal__body a:hover { color: var(--blue-700); }
+  .legal__body strong { color: var(--ink-900); }
+</style>

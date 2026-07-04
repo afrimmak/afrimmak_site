@@ -1,0 +1,258 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const values = [
+  { n: '01', title: 'Integrity', body: 'We say what we do and we do what we say. No inflated numbers, no fake testimonials.' },
+  { n: '02', title: 'Community first', body: 'We build with the people we serve, not for them. The competition is shaped by what young people tell us they need.' },
+  { n: '03', title: 'Built with youth', body: 'Young people are participants in Afrimmak, not just beneficiaries. Their voices shape our direction.' },
+  { n: '04', title: 'The Gambia first', body: 'Our context, our constraints, our opportunity. We do not import solutions and expect them to fit.' },
+];
+
+// Organisational structure. Every name is a deliberate placeholder — no
+// fabricated names. Founder/President (Ida Mendy) lives in the Founder
+// section above and is not repeated here.
+const team = [
+  { role: 'Executive Director', summary: 'Oversees day-to-day management of Afrimmak.' },
+  { role: 'Deputy Executive Director', summary: 'Coordinates all departments and follows up on implementation.' },
+  { role: 'Program Officer', summary: 'Leads planning and implementation of all Afrimmak programs.' },
+  { role: 'Assistant Program Officer', summary: 'Supports program implementation and volunteer coordination.' },
+  { role: 'Communication Officer', summary: 'Responsible for all official Afrimmak communications.' },
+  { role: 'Assistant Communication Officer', summary: 'Manages social media and content.' },
+  { role: 'Tech Officer', summary: "Manages Afrimmak's digital systems and technical infrastructure." },
+  { role: 'Assistant Tech Officer', summary: 'Supports technical operations and data management.' },
+];
+---
+
+<BaseLayout
+  current="About"
+  title="About — Afrimmak"
+  description="Afrimmak is a youth-empowerment project of the Mendez Impact Foundation, based in The Gambia. Meet the mission, values, and team behind the competition."
+>
+  <section class="page-head page-head--dark">
+    <div class="afr-container">
+      <div class="eyebrow on-dark">About Afrimmak</div>
+      <h1 class="h-display" style="margin: 8px 0 16px; color: white; max-width: 820px;">Built for The Gambia, by people who live here.</h1>
+      <p class="lede" style="max-width: 620px; color: rgba(255,255,255,0.82);">
+        Afrimmak is a community-rooted effort to give young Gambians practical skills,
+        real mentorship, and a genuine shot at the futures they want. We don't believe
+        in handouts — we believe in investment.
+      </p>
+    </div>
+  </section>
+
+  <!-- Mission / Vision -->
+  <section class="tight">
+    <div class="afr-container mv-grid">
+      <div class="card mv" style="border-top: 4px solid var(--afr-blue);">
+        <div class="eyebrow">Mission</div>
+        <p style="font-size: 18px; line-height: 1.6; color: var(--ink-800); margin: 12px 0 0;">
+          Equip young Gambians with practical skills, mentorship, and real pathways to
+          economic opportunity — through a competition that is free to enter, locally
+          grounded, and honest about what it delivers.
+        </p>
+      </div>
+      <div class="card mv" style="border-top: 4px solid var(--afr-green);">
+        <div class="eyebrow" style="color: var(--green-700);">Vision</div>
+        <p style="font-size: 18px; line-height: 1.6; color: var(--ink-800); margin: 12px 0 0;">
+          A Gambia where young people have the skills, the support, and the confidence
+          to lead thriving, self-determined lives — and where that outcome is the norm,
+          not the exception.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Problem -->
+  <section class="tight" style="background: var(--paper-warm);">
+    <div class="afr-container story">
+      <div>
+        <div class="eyebrow" style="color: var(--afr-red);">The problem</div>
+        <h2 class="h2" style="margin: 8px 0 16px;">What we're up against.</h2>
+        <p class="lede" style="margin: 0 0 16px;">
+          Youth unemployment in The Gambia is high — not because young people lack
+          ambition, but because the path from ambition to income is blocked by a
+          shortage of accessible skills training and meaningful mentorship.
+        </p>
+        <p style="color: var(--ink-700); margin: 0;">
+          Formal education often doesn't match what the economy needs, and the networks
+          to translate learning into work are unevenly distributed. Afrimmak exists to
+          close that gap — one cohort at a time.
+        </p>
+      </div>
+      <div class="photo story__photo">Needs: photo — real Gambian context</div>
+    </div>
+  </section>
+
+  <!-- Our Story -->
+  <section class="tight">
+    <div class="afr-container story story--reverse">
+      <div class="photo story__photo">Needs: photo — founding moment / gathering</div>
+      <div>
+        <div class="eyebrow">Our story</div>
+        <h2 class="h2" style="margin: 8px 0 16px;">How we started.</h2>
+        <p class="lede" style="margin: 0 0 16px;">
+          Afrimmak began with a simple observation: the young people around us had more
+          drive than opportunity. The skills and mentorship they needed existed — just
+          not in a form that was accessible to them.
+        </p>
+        <p style="color: var(--ink-700); margin: 0;">
+          So we decided to build it, under the umbrella of the Mendez Impact Foundation.
+          The numbers on this site are placeholders — because we'd rather build something
+          real slowly than inflate something fake quickly.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Values -->
+  <section class="tight" style="background: var(--paper-warm);">
+    <div class="afr-container">
+      <div style="text-align: center; margin-bottom: 48px;">
+        <div class="eyebrow">Values</div>
+        <h2 class="h2" style="margin: 8px 0 0;">What we hold to.</h2>
+      </div>
+      <div class="values-grid">
+        {values.map((v) => (
+          <div class="card value">
+            <div class="value__n">{v.n}</div>
+            <h3 class="h3" style="font-size: 18px; margin: 14px 0 6px;">{v.title}</h3>
+            <p style="margin: 0; font-size: 14px; color: var(--ink-700);">{v.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Founder -->
+  <section class="tight">
+    <div class="afr-container founder">
+      <img src="/assets/founder-ida-mendy.jpg" alt="Ida Mendy, Founder &amp; President of the Mendez Impact Foundation" class="founder__photo" width="800" height="1200" />
+      <div>
+        <div class="eyebrow">Founder</div>
+        <h2 class="h2" style="margin: 8px 0 4px;">Ida Mendy</h2>
+        <div style="font-family: var(--font-display); font-weight: 700; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--afr-blue); margin-bottom: 20px;">
+          Founder &amp; President · Mendez Impact Foundation
+        </div>
+        <p style="color: var(--ink-700); margin: 0 0 16px;">
+          Placeholder — Ida's background, what drove her to start Afrimmak, and what she
+          believes about youth potential in The Gambia. 100–150 words, in her voice.
+        </p>
+        <p style="color: var(--ink-700); margin: 0;">
+          Second paragraph: what she's building toward, and why the Mendez Impact
+          Foundation is the right home for this work.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team / org structure -->
+  <section class="tight" style="background: var(--paper-warm);">
+    <div class="afr-container">
+      <div style="text-align: center; margin-bottom: 48px;">
+        <div class="eyebrow">Team</div>
+        <h2 class="h2" style="margin: 8px 0 0;">The people behind Afrimmak.</h2>
+      </div>
+
+      <div class="team-row">
+        {team.map((m) => (
+          <div class="card team-card">
+            <div class="photo team-card__photo">Needs: portrait</div>
+            <div class="team-card__name">[Name]</div>
+            <div class="team-card__role">{m.role}</div>
+            <p class="team-card__summary">{m.summary}</p>
+          </div>
+        ))}
+      </div>
+
+      <p class="team-volunteers">
+        Plus a growing team of school-based volunteers across The Gambia.
+      </p>
+    </div>
+  </section>
+
+  <!-- MIF strip -->
+  <section class="tight" style="background: var(--ink-900); color: white; text-align: center;">
+    <div class="afr-container" style="max-width: 720px;">
+      <div class="eyebrow on-dark">Our umbrella</div>
+      <h2 class="h3" style="color: white; margin: 8px 0 12px;">A project of the Mendez Impact Foundation</h2>
+      <p style="color: rgba(255,255,255,0.7); margin: 0;">
+        Afrimmak operates under the Mendez Impact Foundation — providing governance,
+        fiduciary oversight, and shared infrastructure so every donation and every
+        cycle of the competition is properly accounted for.
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-head { padding-top: 156px; padding-bottom: 64px; background: var(--paper); }
+  .page-head--dark { background: var(--ink-900); }
+
+  .mv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+  .mv { padding: 32px; }
+
+  .story { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+  .story__photo { min-height: 280px; }
+
+  .values-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+  .value__n { font-family: var(--font-display); font-weight: 900; font-size: 32px; color: var(--afr-blue); }
+
+  .founder { display: grid; grid-template-columns: 300px 1fr; gap: 64px; align-items: start; }
+  .founder__photo {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    object-position: top center;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md, 0 12px 32px rgba(10, 26, 51, 0.12));
+  }
+
+  /* Team / org structure — one flat grid, two rows of four. */
+  .team-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+
+  .team-card { padding: 16px; text-align: center; }
+  .team-card__photo {
+    aspect-ratio: 4 / 5;
+    min-height: 0;
+    margin-bottom: 14px;
+    border-radius: 12px;
+  }
+  .team-card__name {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 15px;
+    color: var(--ink-300);
+  }
+  .team-card__role {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--afr-blue);
+    margin-top: 4px;
+  }
+  .team-card__summary { margin: 10px 0 0; font-size: 13px; line-height: 1.5; color: var(--ink-700); }
+
+  .team-volunteers {
+    text-align: center;
+    margin: 40px auto 0;
+    max-width: 520px;
+    font-size: 14px;
+    color: var(--ink-500);
+  }
+
+  @media (max-width: 860px) {
+    .mv-grid { grid-template-columns: 1fr; }
+    .story, .story--reverse { grid-template-columns: 1fr; gap: 32px; }
+    .story--reverse .photo { order: -1; }
+    .values-grid { grid-template-columns: repeat(2, 1fr); }
+    .founder { grid-template-columns: 1fr; gap: 32px; }
+    .team-row { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 560px) {
+    .values-grid { grid-template-columns: 1fr; }
+  }
+</style>

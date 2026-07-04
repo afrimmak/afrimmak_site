@@ -1,0 +1,35 @@
+<!doctype html>
+<!-- @dsCard group="Components" name="Buttons" subtitle="Pill buttons; primary/secondary/accent/ghost/soft/dark" viewport="700x180" -->
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="_base.css">
+<style>
+  .btn { font-family: var(--font-display); font-weight:700; font-size:14px; letter-spacing:0.01em; border:none; border-radius:999px; padding:12px 22px; cursor:pointer; transition: all 180ms var(--ease-out); display:inline-flex; align-items:center; gap:8px; }
+  .btn-primary { background:var(--blue-500); color:white; box-shadow: 0 8px 20px rgba(0,72,168,0.25); }
+  .btn-primary:hover { background:var(--blue-600); }
+  .btn-secondary { background:var(--green-500); color:white; box-shadow: 0 8px 20px rgba(111,197,46,0.25); }
+  .btn-accent { background:var(--red-500); color:white; box-shadow: 0 8px 20px rgba(238,42,48,0.25); }
+  .btn-ghost { background:transparent; color:var(--blue-600); border:2px solid var(--blue-500); }
+  .btn-soft { background:var(--blue-50); color:var(--blue-700); }
+  .btn-dark { background:var(--ink-900); color:white; }
+  .btn-sm { padding:8px 16px; font-size:12px; }
+  .btn-lg { padding:16px 28px; font-size:16px; }
+</style>
+</head>
+<body>
+<div class="card" style="padding:20px 24px;">
+  <div class="label-small" style="margin-bottom:14px;">Buttons</div>
+  <div style="display:flex; flex-wrap:wrap; gap:10px; align-items:center;">
+    <button class="btn btn-primary">Apply now</button>
+    <button class="btn btn-secondary">Get involved</button>
+    <button class="btn btn-accent">Donate</button>
+    <button class="btn btn-ghost">Learn more</button>
+    <button class="btn btn-soft">Read story</button>
+    <button class="btn btn-dark">Sign in</button>
+  </div>
+  <div style="display:flex; gap:10px; align-items:center; margin-top:12px;">
+    <button class="btn btn-primary btn-sm">Small</button>
+    <button class="btn btn-primary">Default</button>
+    <button class="btn btn-primary btn-lg">Large</button>
+    <button class="btn btn-primary" disabled style="opacity:0.4; cursor:not-allowed;">Disabled</button>
+  </div>
+</div>
+</body></html>

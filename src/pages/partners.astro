@@ -1,0 +1,152 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const types = [
+  { icon: 'school', title: 'Training Partners', body: 'Schools and providers who host competition events and share facilities and expertise.', accent: 'var(--afr-blue)', soft: 'var(--blue-50)' },
+  { icon: 'hand-coins', title: 'Funding Partners', body: 'Funders, donors, and foundations who back the competition and our growth.', accent: 'var(--green-600)', soft: 'var(--green-50)' },
+  { icon: 'users-round', title: 'Mentorship Partners', body: 'Diaspora and local professionals who give their time directly to young people.', accent: 'var(--afr-red)', soft: 'var(--red-50)' },
+  { icon: 'building-2', title: 'Corporate Partners', body: 'Gambian businesses who hire graduates and sponsor work-experience placements.', accent: 'var(--ink-900)', soft: 'var(--ink-50)' },
+];
+
+const benefits = [
+  { title: 'Access to motivated graduates', body: 'Our graduates are vetted, trained, and hungry. Hiring from our network means you know who you are getting.' },
+  { title: 'Visible commitment to Gambian youth', body: 'Partnership is a public signal that your organisation invests in the next generation, not just in profit.' },
+  { title: 'Transparent reporting', body: 'We share what your funding or support actually produces — cohort numbers, graduate outcomes, honest feedback.' },
+  { title: 'A seat at the table', body: 'Major partners shape what we build next. If you have an unmet talent need, we will design towards it.' },
+];
+---
+
+<BaseLayout
+  current="Partners"
+  title="Partners — Afrimmak"
+  description="Partner with Afrimmak — schools, funders, mentors, and Gambian businesses backing young African innovators. Multiply the reach of a free entrepreneurship competition."
+>
+  <section class="page-head page-head--green">
+    <div class="afr-container">
+      <div class="eyebrow" style="color: white;">Partners</div>
+      <h1 class="h-display" style="margin: 8px 0 16px; color: white; max-width: 820px;">Together we reach more young people.</h1>
+      <p class="lede" style="max-width: 640px; color: rgba(255,255,255,0.9);">
+        Afrimmak's reach is multiplied by every partner we work with — schools,
+        businesses, funders, and diaspora networks. If you believe in what young
+        Gambians can do, we want to hear from you.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="afr-container">
+      <div style="text-align: center; margin-bottom: 48px;">
+        <div class="eyebrow">How we partner</div>
+        <h2 class="h2" style="margin: 8px 0 0;">Four ways to get involved.</h2>
+      </div>
+      <div class="types-grid">
+        {types.map((t) => (
+          <div class="card type">
+            <div class="type__icon" style={`background: ${t.soft};`}>
+              <i data-lucide={t.icon} style={`color: ${t.accent};`}></i>
+            </div>
+            <h3 class="h3" style="font-size: 18px; margin: 16px 0 8px;">{t.title}</h3>
+            <p style="margin: 0; font-size: 14px; color: var(--ink-700);">{t.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Logo grid -->
+  <section class="tight" style="background: var(--paper-warm);">
+    <div class="afr-container">
+      <div class="eyebrow" style="text-align: center;">Current &amp; incoming partners</div>
+      <div class="logos">
+        {Array.from({ length: 12 }).map((_, i) => (
+          <div class="logo-slot">Partner {i + 1}</div>
+        ))}
+      </div>
+      <p style="text-align: center; margin-top: 20px; color: var(--ink-500); font-size: 14px;">
+        We're building this network now. Your logo belongs here.
+      </p>
+    </div>
+  </section>
+
+  <!-- Why partner -->
+  <section>
+    <div class="afr-container why-grid">
+      <div>
+        <div class="eyebrow">Why partner with us</div>
+        <h2 class="h2" style="margin: 8px 0 24px;">What you get from this.</h2>
+        <div class="benefits">
+          {benefits.map((b) => (
+            <div class="benefit">
+              <i data-lucide="check" class="benefit__check"></i>
+              <div>
+                <h3 class="h3" style="font-size: 16px; margin: 0 0 4px;">{b.title}</h3>
+                <p style="margin: 0; font-size: 14px; color: var(--ink-700);">{b.body}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div class="card card-feature diaspora">
+        <div class="eyebrow">Diaspora special</div>
+        <h3 class="h3" style="margin: 8px 0 16px;">Gambians abroad, we see you.</h3>
+        <p style="color: var(--ink-700); margin: 0 0 16px;">
+          The Gambian diaspora is one of the most powerful networks in the world
+          relative to country size. You carry knowledge, networks, and capital that
+          young Gambians at home need.
+        </p>
+        <p style="color: var(--ink-700); margin: 0 0 24px;">
+          Whether it's mentoring one young person a month or backing a whole cohort —
+          every contribution compounds.
+        </p>
+        <a href="/contact" class="btn btn-primary">Get involved from abroad <i data-lucide="arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="tight">
+    <div class="afr-container">
+      <div class="card card-pop partner-cta">
+        <div>
+          <h2 class="h2" style="color: white; margin: 0 0 8px;">Ready to partner?</h2>
+          <p style="color: rgba(255,255,255,0.85); margin: 0; max-width: 460px;">
+            We respond to all partner enquiries within three working days. Reach us
+            directly or use the form — either works.
+          </p>
+        </div>
+        <div class="partner-cta__actions">
+          <a href="/contact" class="btn btn-secondary btn-lg">Start a conversation</a>
+          <a href="mailto:info@afrimmak.org" class="btn btn-white">info@afrimmak.org</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-head { padding-top: 156px; padding-bottom: 64px; background: var(--paper); }
+  .page-head--green { background: var(--green-600); }
+
+  .types-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+  .type__icon { width: 52px; height: 52px; border-radius: 14px; display: flex; align-items: center; justify-content: center; }
+  .type__icon :global(svg) { width: 26px; height: 26px; }
+
+  .logos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; margin-top: 40px; }
+  .logo-slot { aspect-ratio: 3/2; background: white; border: 1px solid var(--ink-100); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--ink-300); font-size: 12px; font-family: var(--font-mono); }
+
+  .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+  .benefits { display: flex; flex-direction: column; gap: 20px; }
+  .benefit { display: flex; gap: 14px; align-items: flex-start; }
+  .benefit__check { width: 26px; height: 26px; padding: 5px; border-radius: 999px; background: var(--green-50); color: var(--green-700); flex: 0 0 26px; }
+  .diaspora { padding: 36px; }
+
+  .partner-cta { display: grid; grid-template-columns: 1fr auto; gap: 48px; align-items: center; padding: 48px; }
+  .partner-cta__actions { display: flex; flex-direction: column; gap: 12px; align-items: flex-start; }
+
+  @media (max-width: 860px) {
+    .types-grid { grid-template-columns: repeat(2, 1fr); }
+    .logos { grid-template-columns: repeat(3, 1fr); }
+    .why-grid { grid-template-columns: 1fr; gap: 40px; }
+    .partner-cta { grid-template-columns: 1fr; gap: 28px; }
+  }
+</style>

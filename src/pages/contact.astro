@@ -1,0 +1,138 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const enquiries = [
+  { label: 'The competition', how: 'Use the form — we\'ll tell you when the next cycle opens', dot: 'var(--afr-red)' },
+  { label: 'Partnerships & funding', how: 'info@afrimmak.org — we reply within 3 working days', dot: 'var(--afr-blue)' },
+  { label: 'Media & press', how: "info@afrimmak.org with 'Press' in the subject", dot: 'var(--afr-green)' },
+  { label: 'Volunteer with us', how: 'Use the form — tell us how you would like to help', dot: 'var(--ink-500)' },
+];
+---
+
+<BaseLayout
+  current="Contact"
+  title="Contact — Afrimmak"
+  description="Get in touch with Afrimmak about the competition, partnerships and funding, media, or volunteering — a real team in The Gambia that replies personally."
+>
+  <section class="page-head page-head--red">
+    <div class="afr-container">
+      <div class="eyebrow" style="color: white;">Contact</div>
+      <h1 class="h-display" style="margin: 8px 0 16px; color: white;">Let's talk.</h1>
+      <p class="lede" style="max-width: 560px; color: rgba(255,255,255,0.9);">
+        Whether you want to know more about the competition, explore a partnership,
+        or just want to say hello — we're a real team and we respond personally.
+      </p>
+    </div>
+  </section>
+
+  <section class="tight">
+    <div class="afr-container contact-grid">
+      <!-- Form -->
+      <div class="card contact-form">
+        <h2 class="h3" style="font-size: 22px; margin: 0 0 4px;">Send us a message</h2>
+        <p style="margin: 0 0 24px; color: var(--ink-500); font-size: 14px;">We read every message and respond within two working days.</p>
+        <form class="form" onsubmit="event.preventDefault(); this.querySelector('.form__note').textContent = 'Form is UI-only for now — wire to a backend before launch.';">
+          <div class="form__row">
+            <label class="field"><span>First name</span><input type="text" placeholder="Your first name" /></label>
+            <label class="field"><span>Last name</span><input type="text" placeholder="Your last name" /></label>
+          </div>
+          <label class="field"><span>Email address</span><input type="email" placeholder="you@example.com" /></label>
+          <label class="field"><span>WhatsApp / phone (optional)</span><input type="tel" placeholder="+220 …" /></label>
+          <label class="field"><span>What's this about?</span>
+            <select>
+              <option value="" disabled selected>Choose a topic</option>
+              <option>The competition</option>
+              <option>Becoming a partner</option>
+              <option>Funding or donations</option>
+              <option>Mentorship (I want to mentor)</option>
+              <option>Media or press</option>
+              <option>Volunteering</option>
+              <option>Something else</option>
+            </select>
+          </label>
+          <label class="field"><span>Message</span><textarea rows="5" placeholder="Tell us what's on your mind."></textarea></label>
+          <button type="submit" class="btn btn-primary btn-lg" style="width: 100%; justify-content: center;">Send message</button>
+          <p class="form__note" style="text-align: center; font-size: 12px; color: var(--ink-500); margin: 4px 0 0;">Your message goes to the Afrimmak team. We don't share your details.</p>
+        </form>
+      </div>
+
+      <!-- Sidebar -->
+      <div class="contact-side">
+        <div class="card contact-wa" id="donate">
+          <div class="eyebrow on-dark">Fastest way</div>
+          <div style="font-family: var(--font-display); font-weight: 900; font-size: 24px; color: white; margin: 4px 0;">WhatsApp</div>
+          <div style="font-family: var(--font-display); font-weight: 800; font-size: 16px; color: var(--green-400); margin-bottom: 12px;">+220 3869939</div>
+          <p style="color: rgba(255,255,255,0.7); font-size: 13px; margin: 0 0 18px;">We respond fast during Gambian working hours — usually within a few hours.</p>
+          <a href="https://wa.me/2203869939" class="btn btn-secondary btn-sm">Open WhatsApp <i data-lucide="arrow-right"></i></a>
+        </div>
+
+        <div class="card">
+          <div class="eyebrow">By enquiry type</div>
+          <div class="enq">
+            {enquiries.map((e) => (
+              <div class="enq__row">
+                <span class="enq__dot" style={`background: ${e.dot};`}></span>
+                <div>
+                  <div class="enq__label">{e.label}</div>
+                  <div class="enq__how">{e.how}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div class="card" style="background: var(--paper-warm);">
+          <div class="eyebrow">Where to find us</div>
+          <div class="loc"><i data-lucide="map-pin"></i><div><strong>Address</strong><br />Brusubi Phase 1, Banjul, The Gambia</div></div>
+          <div class="loc"><i data-lucide="mail"></i><div><strong>Email</strong><br />info@afrimmak.org</div></div>
+          <div class="loc"><i data-lucide="phone"></i><div><strong>Phone</strong><br />+220 3869939</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-head { padding-top: 156px; padding-bottom: 64px; background: var(--paper); }
+  .page-head--red { background: var(--afr-red); }
+
+  .contact-grid { display: grid; grid-template-columns: 1fr 400px; gap: 48px; align-items: start; }
+  .contact-form { padding: 36px; }
+  .form { display: flex; flex-direction: column; gap: 18px; }
+  .form__row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .field { display: flex; flex-direction: column; gap: 6px; }
+  .field span { font-family: var(--font-display); font-weight: 700; font-size: 13px; color: var(--ink-900); }
+  .field input, .field select, .field textarea {
+    padding: 12px 14px;
+    border: 1px solid var(--ink-200);
+    border-radius: 10px;
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: var(--ink-900);
+    background: var(--paper-warm);
+    outline: none;
+    transition: border-color 160ms var(--ease-out);
+    resize: vertical;
+  }
+  .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--afr-blue); background: white; }
+
+  .contact-side { display: flex; flex-direction: column; gap: 20px; }
+  .contact-wa { background: var(--ink-900); }
+
+  .enq { display: flex; flex-direction: column; gap: 0; margin-top: 8px; }
+  .enq__row { display: grid; grid-template-columns: auto 1fr; gap: 12px; align-items: start; padding: 12px 0; border-bottom: 1px solid var(--ink-100); }
+  .enq__row:last-child { border-bottom: none; }
+  .enq__dot { width: 8px; height: 8px; border-radius: 999px; margin-top: 7px; }
+  .enq__label { font-family: var(--font-display); font-weight: 700; font-size: 14px; color: var(--ink-900); }
+  .enq__how { font-size: 13px; color: var(--ink-500); }
+
+  .loc { display: flex; gap: 10px; align-items: flex-start; margin-top: 14px; font-size: 13px; color: var(--ink-700); }
+  .loc:first-of-type { margin-top: 12px; }
+  .loc :global(svg) { width: 18px; height: 18px; color: var(--afr-blue); flex: 0 0 18px; margin-top: 2px; }
+  .loc strong { font-family: var(--font-display); font-weight: 700; color: var(--ink-900); }
+
+  @media (max-width: 860px) {
+    .contact-grid { grid-template-columns: 1fr; gap: 32px; }
+    .form__row { grid-template-columns: 1fr; }
+  }
+</style>

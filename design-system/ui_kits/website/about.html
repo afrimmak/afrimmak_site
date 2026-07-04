@@ -1,0 +1,207 @@
+<!doctype html>
+<!-- @dsCard group="UI Kit — Website" name="Website · About" subtitle="Mission, story, values, founder, team, MIF note" viewport="1280x900" -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>About · Afrimmak</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../../colors_and_type.css">
+  <link rel="stylesheet" href="site.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel" src="Placeholder.jsx"></script>
+  <script type="text/babel" src="Nav.jsx"></script>
+  <script type="text/babel" src="Footer.jsx"></script>
+  <script type="text/babel" src="ApplyOverlay.jsx"></script>
+  <script type="text/babel" src="DonateOverlay.jsx"></script>
+  <script type="text/babel" src="PageShell.jsx"></script>
+
+  <script type="text/babel">
+    function About() {
+      return (
+        <PageShell current="About">
+          <PageBanner
+            eyebrow="About Afrimmak"
+            title={<>Built for The Gambia, by people who live there.</>}
+            intro={<>Afrimmak is a project of the <strong>Mendez Impact Foundation</strong> — a community-rooted effort to give young Gambians practical skills, mentorship, and a real shot at the futures they want.</>}
+            accent="var(--afr-blue)" />
+
+          {/* Mission / Vision */}
+          <section>
+            <div className="afr-container">
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20 }}>
+                <div className="card" style={{ padding: 32, borderColor: 'var(--blue-500)', borderWidth: 2 }}>
+                  <div className="eyebrow" style={{ marginBottom: 8 }}>Mission</div>
+                  <Placeholder kind="Content" label="Mission statement — one sentence"
+                    hint="What Afrimmak does, and for whom. Plain English."
+                    height={96} />
+                </div>
+                <div className="card" style={{ padding: 32, borderColor: 'var(--green-500)', borderWidth: 2 }}>
+                  <div className="eyebrow" style={{ marginBottom: 8, color: 'var(--green-700)' }}>Vision</div>
+                  <Placeholder kind="Content" label="Vision statement — one sentence"
+                    hint="The long-term change Afrimmak works toward."
+                    height={96} />
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Story / Problem */}
+          <section style={{ background: 'var(--paper-warm)' }}>
+            <div className="afr-container" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 48, alignItems: 'start' }}>
+              <div>
+                <div className="eyebrow" style={{ marginBottom: 12 }}>Our Story</div>
+                <h2 className="h2" style={{ margin: 0, marginBottom: 16 }}>How we started.</h2>
+                <Placeholder kind="Content" label="Origin story — one short paragraph"
+                  hint="When was Afrimmak founded, by whom, and why? Keep it human — what was the moment or problem that lit the spark?"
+                  height={160} />
+              </div>
+              <div>
+                <div className="eyebrow" style={{ marginBottom: 12, color: 'var(--afr-red)' }}>The Problem</div>
+                <h2 className="h2" style={{ margin: 0, marginBottom: 16 }}>What we're up against.</h2>
+                <Placeholder kind="Content" label="Problem statement"
+                  hint="What problem exists in The Gambia that Afrimmak addresses? Be specific — youth unemployment, skills gap, lack of mentorship, opportunity inequality. 2–3 sentences."
+                  height={160} />
+              </div>
+            </div>
+          </section>
+
+          {/* Values */}
+          <section>
+            <div className="afr-container">
+              <div className="eyebrow" style={{ marginBottom: 12 }}>Values</div>
+              <h2 className="h2" style={{ margin: 0, marginBottom: 28 }}>What we hold to.</h2>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 16 }}>
+                {[
+                  { n: '01', t: 'Value one',  hint: 'A short, plain-spoken value with one line of explanation.' },
+                  { n: '02', t: 'Value two',  hint: '"We say what we do and we do what we say."' },
+                  { n: '03', t: 'Value three',hint: '"Built with, not for, young people."' },
+                  { n: '04', t: 'Value four', hint: '"The Gambia first — always."' },
+                ].map(v => (
+                  <div key={v.n} className="card" style={{ padding: 24 }}>
+                    <div style={{ fontFamily: 'var(--font-display)', fontWeight: 900, fontSize: 22, color: 'var(--afr-blue)', letterSpacing: '-0.02em' }}>{v.n}</div>
+                    <div style={{ fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: 16, marginTop: 8, color: 'var(--ink-900)' }}>{v.t}</div>
+                    <Placeholder kind="Content" label="One line of explanation" hint={v.hint} dense height={70} />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* Founder */}
+          <section style={{ background: 'var(--paper-warm)' }}>
+            <div className="afr-container">
+              <div className="eyebrow" style={{ marginBottom: 12 }}>Founder</div>
+              <h2 className="h2" style={{ margin: 0, marginBottom: 28 }}>Who's behind this.</h2>
+              <div className="card" style={{ padding: 32, display: 'grid', gridTemplateColumns: '220px 1fr', gap: 32, alignItems: 'start' }}>
+                <Placeholder kind="Photo" label="Founder photo"
+                  hint="A clear, well-lit photo — not a passport photo. Outside, at a workshop, or in your office."
+                  height={260} />
+                <div>
+                  <div style={{ fontFamily: 'var(--font-display)', fontWeight: 900, fontSize: 30, letterSpacing: '-0.02em', color: 'var(--ink-900)' }}>
+                    Founder name <DraftTag>Placeholder</DraftTag>
+                  </div>
+                  <div style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: 14, color: 'var(--blue-600)', marginTop: 4, letterSpacing: '0.04em', textTransform: 'uppercase' }}>
+                    Founder & Executive Director, Afrimmak
+                  </div>
+                  <Placeholder kind="Content" label="Founder bio — 100 to 150 words"
+                    hint="Background, motivation, what they bring to Afrimmak. Personal but professional."
+                    height={140} />
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Team */}
+          <section>
+            <div className="afr-container">
+              <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', marginBottom: 28, flexWrap: 'wrap', gap: 12 }}>
+                <div>
+                  <div className="eyebrow" style={{ marginBottom: 12 }}>Team</div>
+                  <h2 className="h2" style={{ margin: 0 }}>The people doing the work.</h2>
+                </div>
+                <a href="contact.html" className="btn btn-ghost">Join the team <i data-lucide="arrow-right" className="icon"></i></a>
+              </div>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 16 }}>
+                {[1,2,3,4].map(n => (
+                  <div key={n} className="card" style={{ padding: 0, overflow: 'hidden' }}>
+                    <Placeholder kind="Photo" label={`Team member ${n}`} hint="Headshot" height={200} />
+                    <div style={{ padding: 16 }}>
+                      <div style={{ fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: 16, color: 'var(--ink-900)' }}>Name {n}</div>
+                      <div style={{ fontFamily: 'var(--font-body)', fontSize: 13, color: 'var(--ink-500)' }}>Role / title</div>
+                      <Placeholder kind="Content" label="2-sentence bio" dense height={70} />
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div style={{ marginTop: 24 }}>
+                <Placeholder kind="Photo" label="Team group photo"
+                  hint="The whole crew together. Outdoors if possible — warm light, no boardroom shots."
+                  height={280} />
+              </div>
+            </div>
+          </section>
+
+          {/* MIF note */}
+          <section style={{ background: 'var(--ink-900)', color: 'white' }}>
+            <div className="afr-container">
+              <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: 48, alignItems: 'center' }}>
+                <div>
+                  <div className="eyebrow on-dark" style={{ marginBottom: 12 }}>Our umbrella</div>
+                  <h2 className="h2" style={{ color: 'white', margin: 0 }}>A project of the<br/><span style={{ color: 'var(--green-400)' }}>Mendez Impact Foundation.</span></h2>
+                  <p className="lede" style={{ color: 'rgba(255,255,255,0.82)', marginTop: 16, maxWidth: 520 }}>
+                    Afrimmak is a programme of the Mendez Impact Foundation, a Gambian-rooted
+                    foundation focused on community impact. MIF provides governance,
+                    fiduciary oversight, and shared infrastructure so Afrimmak can focus
+                    on what it does best — building with young people.
+                  </p>
+                  <a href="#" className="btn btn-white" style={{ marginTop: 24 }}>
+                    Learn about MIF
+                    <i data-lucide="arrow-right" className="icon"></i>
+                  </a>
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'center' }}>
+                  <div style={{
+                    background: 'rgba(255,255,255,0.06)',
+                    border: '2px dashed rgba(255,255,255,0.25)',
+                    borderRadius: 24, padding: 36,
+                    width: '100%', maxWidth: 360,
+                    textAlign: 'center',
+                  }}>
+                    <div style={{
+                      display: 'inline-flex', alignItems: 'center', gap: 6,
+                      background: 'var(--afr-red)', color: 'white',
+                      padding: '4px 12px', borderRadius: 999,
+                      fontFamily: 'var(--font-display)', fontWeight: 800,
+                      fontSize: 10, letterSpacing: '0.08em', textTransform: 'uppercase',
+                      marginBottom: 20,
+                    }}>
+                      <span style={{ width: 6, height: 6, borderRadius: 3, background: 'white' }} />
+                      Needs: Logo
+                    </div>
+                    <div style={{ fontFamily: 'var(--font-display)', fontWeight: 900, fontSize: 26, color: 'white', letterSpacing: '-0.01em', lineHeight: 1.15 }}>
+                      Mendez Impact<br/>Foundation
+                    </div>
+                    <div style={{ fontFamily: 'var(--font-body)', fontSize: 12, color: 'rgba(255,255,255,0.6)', marginTop: 10 }}>
+                      MIF logo will sit here.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </PageShell>
+      );
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<About />);
+  </script>
+</body>
+</html>

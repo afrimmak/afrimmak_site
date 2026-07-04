@@ -1,0 +1,138 @@
+---
+// AFRIMMAK — Top Navigation
+// Ported from ui_kits/website/Nav.jsx. Solid frosted bar; underline on the
+// current page. Uses the wordmark PNG (never recreate the logo in text).
+interface Props { current?: string; }
+const { current = 'Home' } = Astro.props;
+
+const links = [
+  { label: 'Home', href: '/' },
+  { label: 'Competition', href: '/competition' },
+  { label: 'About', href: '/about' },
+  { label: 'Partners', href: '/partners' },
+  { label: 'Contact', href: '/contact' },
+];
+---
+
+<nav class="afr-nav" id="afr-nav">
+  <div class="afr-container afr-nav__inner">
+    <a href="/" class="afr-nav__brand" aria-label="Afrimmak home">
+      <img src="/assets/afrimmak-wordmark.png" alt="Afrimmak" height="42" />
+    </a>
+
+    <button class="afr-nav__toggle" id="afr-nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <i data-lucide="menu"></i>
+    </button>
+
+    <div class="afr-nav__menu" id="afr-nav-menu">
+      <div class="afr-nav__links">
+        {links.map((l) => (
+          <a
+            href={l.href}
+            class:list={['afr-nav__link', { 'is-active': current === l.label }]}
+          >
+            {l.label}
+          </a>
+        ))}
+      </div>
+      <a href="/contact#donate" class="btn afr-nav__donate">Donate</a>
+    </div>
+  </div>
+</nav>
+
+<style>
+  .afr-nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 50;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--ink-100);
+    transition: all 200ms var(--ease-out);
+  }
+  .afr-nav__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 76px;
+  }
+  .afr-nav__brand { display: flex; align-items: center; text-decoration: none; }
+  .afr-nav__brand img { display: block; height: 42px; }
+
+  .afr-nav__menu {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+  .afr-nav__links { display: flex; gap: 28px; }
+  .afr-nav__link {
+    position: relative;
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--ink-700);
+    text-decoration: none;
+    transition: color 160ms var(--ease-out);
+  }
+  .afr-nav__link:hover { color: var(--blue-600); }
+  .afr-nav__link.is-active { color: var(--blue-700); }
+  .afr-nav__link.is-active::after {
+    content: '';
+    position: absolute;
+    left: 0; right: 0; bottom: -26px;
+    height: 3px;
+    background: var(--blue-500);
+    border-radius: 2px;
+  }
+
+  .afr-nav__donate {
+    background: var(--afr-red);
+    color: white;
+    padding: 10px 20px;
+    box-shadow: 0 4px 12px rgba(238, 42, 48, 0.25);
+  }
+  .afr-nav__donate:hover { background: var(--red-600); }
+
+  .afr-nav__toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--ink-900);
+    padding: 8px;
+  }
+
+  /* Mobile */
+  @media (max-width: 860px) {
+    .afr-nav__toggle { display: inline-flex; }
+    .afr-nav__menu {
+      position: absolute;
+      top: 76px; left: 0; right: 0;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--ink-100);
+      padding: 16px 32px 24px;
+      transform: translateY(-8px);
+      opacity: 0;
+      pointer-events: none;
+      transition: all 200ms var(--ease-out);
+    }
+    .afr-nav__menu.is-open { transform: translateY(0); opacity: 1; pointer-events: auto; }
+    .afr-nav__links { flex-direction: column; gap: 4px; }
+    .afr-nav__link { padding: 10px 0; font-size: 16px; }
+    .afr-nav__link.is-active::after { display: none; }
+    .afr-nav__donate { justify-content: center; margin-top: 8px; }
+  }
+</style>
+
+<script>
+  const toggle = document.getElementById('afr-nav-toggle');
+  const menu = document.getElementById('afr-nav-menu');
+  toggle?.addEventListener('click', () => {
+    const open = menu?.classList.toggle('is-open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+</script>

@@ -1,0 +1,47 @@
+<!doctype html>
+<!-- @dsCard group="Components" name="Button (React)" subtitle="Exported <Button> — six variants, three sizes" viewport="720x260" -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="../../colors_and_type.css">
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="../../_ds_bundle.js"></script>
+  <style>
+    body { margin: 0; padding: 24px; background: var(--paper-warm); font-family: var(--font-body); }
+    .card { background: #fff; border: 1px solid var(--border-1); border-radius: 16px; padding: 22px 24px; box-shadow: var(--shadow-sm); }
+    .label-small { font-family: var(--font-display); font-weight: 700; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-500); margin-bottom: 14px; }
+    .row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+    .row + .row { margin-top: 12px; }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <script>
+    const { Button } = window.AfrimmakDesignSystem_6be0c3;
+    const e = React.createElement;
+
+    function Demo() {
+      return e('div', { className: 'card' }, [
+        e('div', { className: 'label-small', key: 'l' }, 'Button · React component'),
+        e('div', { className: 'row', key: 'r1' }, [
+          e(Button, { variant: 'primary',   key: 'a' }, 'Apply now'),
+          e(Button, { variant: 'secondary', key: 'b' }, 'Get involved'),
+          e(Button, { variant: 'accent',    key: 'c' }, 'Donate'),
+          e(Button, { variant: 'ghost',     key: 'd' }, 'Learn more'),
+          e(Button, { variant: 'soft',      key: 'e' }, 'Read story'),
+          e(Button, { variant: 'dark',      key: 'f' }, 'Sign in'),
+        ]),
+        e('div', { className: 'row', key: 'r2' }, [
+          e(Button, { size: 'sm', key: 'a' }, 'Small'),
+          e(Button, { size: 'md', key: 'b' }, 'Default'),
+          e(Button, { size: 'lg', key: 'c' }, 'Large'),
+          e(Button, { disabled: true, key: 'd' }, 'Disabled'),
+        ]),
+      ]);
+    }
+
+    ReactDOM.createRoot(document.getElementById('root')).render(e(Demo));
+  </script>
+</body>
+</html>

@@ -1,0 +1,117 @@
+/* Afrimmak website UI kit — page-level styles.
+   All tokens come from ../../colors_and_type.css */
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: var(--paper); color: var(--ink-900); font-family: var(--font-body); -webkit-font-smoothing: antialiased; }
+
+.afr-container { max-width: 1180px; margin: 0 auto; padding: 0 32px; }
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--font-display); font-weight: 700;
+  font-size: 14px; letter-spacing: 0.01em;
+  border: none; border-radius: 999px;
+  padding: 12px 22px; cursor: pointer;
+  transition: all 180ms var(--ease-out);
+  text-decoration: none;
+}
+.btn:active { transform: scale(0.97); }
+.btn-primary { background: var(--blue-500); color: white; box-shadow: 0 8px 20px rgba(0,72,168,0.25); }
+.btn-primary:hover { background: var(--blue-600); box-shadow: 0 12px 32px rgba(0,72,168,0.32); }
+.btn-secondary { background: var(--green-500); color: white; box-shadow: 0 8px 20px rgba(111,197,46,0.25); }
+.btn-secondary:hover { background: var(--green-600); }
+.btn-ghost { background: transparent; color: var(--blue-600); border: 2px solid var(--blue-500); padding: 10px 20px; }
+.btn-ghost:hover { background: var(--blue-50); }
+.btn-white { background: white; color: var(--blue-700); }
+.btn-white:hover { background: var(--blue-50); }
+.btn-lg { padding: 16px 28px; font-size: 16px; }
+.btn-sm { padding: 8px 14px; font-size: 12px; }
+
+/* ---------- Eyebrow ---------- */
+.eyebrow {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--blue-600);
+}
+.eyebrow.on-dark { color: var(--green-300); }
+
+/* ---------- Card ---------- */
+.card {
+  background: white; border: 1px solid var(--ink-100);
+  border-radius: 16px; padding: 24px;
+  box-shadow: 0 2px 6px rgba(10,26,51,0.08);
+  transition: all 220ms var(--ease-out);
+}
+.card:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(10,26,51,0.10); }
+.card-feature { border: 2px solid var(--blue-500); border-radius: 24px; box-shadow: none; }
+.card-pop { background: var(--blue-500); color: white; border-radius: 32px; box-shadow: 0 12px 32px rgba(0,72,168,0.28); border: none; }
+
+/* ---------- Badge ---------- */
+.badge {
+  display: inline-block;
+  font-family: var(--font-display); font-weight: 700;
+  font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase;
+  padding: 4px 12px; border-radius: 999px;
+}
+.badge-green { background: var(--green-500); color: white; }
+.badge-blue { background: var(--blue-50); color: var(--blue-700); }
+.badge-red { background: var(--red-500); color: white; }
+
+/* ---------- Section ---------- */
+section { padding: 96px 0; }
+section.tight { padding: 64px 0; }
+
+/* ---------- Headings ---------- */
+.h-display {
+  font-family: var(--font-display); font-weight: 900;
+  font-size: clamp(40px, 5.4vw, 68px);
+  line-height: 1.04; letter-spacing: -0.02em;
+}
+.h2 {
+  font-family: var(--font-display); font-weight: 800;
+  font-size: clamp(28px, 3.4vw, 44px);
+  line-height: 1.1; letter-spacing: -0.02em;
+}
+.h3 {
+  font-family: var(--font-display); font-weight: 800;
+  font-size: 22px; line-height: 1.2; letter-spacing: -0.01em;
+}
+.lede {
+  font-family: var(--font-body); font-size: 18px; line-height: 1.6;
+  color: var(--ink-700);
+}
+
+/* ---------- Photo placeholder ---------- */
+.photo {
+  border-radius: 24px;
+  background:
+    repeating-linear-gradient(45deg, transparent 0 14px, rgba(255,255,255,0.05) 14px 15px),
+    linear-gradient(135deg, #B05A2C 0%, #D9882F 35%, #5A7A2E 70%, #3B5A8E 100%);
+  position: relative;
+  overflow: hidden;
+  color: rgba(255,255,255,0.85);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-mono); font-size: 12px;
+}
+.photo::after {
+  content: '[ photo placeholder ]';
+  background: rgba(0,0,0,0.18);
+  padding: 4px 10px;
+  border-radius: 999px;
+  letter-spacing: 0.04em;
+}
+
+/* ---------- Avatar ---------- */
+.avatar {
+  width: 44px; height: 44px; border-radius: 999px;
+  background: linear-gradient(135deg, #D9882F, #B05A2C);
+  flex: 0 0 44px;
+  border: 2px solid white;
+}
+.avatar.green { background: linear-gradient(135deg, #6FC52E, #45851A); }
+.avatar.blue { background: linear-gradient(135deg, #5E92D7, #0048A8); }
+
+/* ---------- Lucide ---------- */
+.icon { width: 20px; height: 20px; stroke-width: 1.75; }
+.icon-lg { width: 28px; height: 28px; stroke-width: 1.75; }

@@ -1,0 +1,204 @@
+---
+// AFRIMMAK — Footer. Ported from ui_kits/website/Footer.jsx.
+// Includes the Mendez Impact Foundation note, contact, and socials.
+const cols = [
+  {
+    title: 'Explore',
+    items: [
+      { label: 'Competition', href: '/competition' },
+      { label: 'About', href: '/about' },
+      { label: 'Partners', href: '/partners' },
+      { label: 'Contact', href: '/contact' },
+    ],
+  },
+  {
+    title: 'Get Involved',
+    items: [
+      { label: 'Partner with us', href: '/partners' },
+      { label: 'Donate', href: '/contact#donate' },
+      { label: 'Get in touch', href: '/contact' },
+    ],
+  },
+];
+---
+
+<footer class="afr-footer">
+  <div class="afr-footer__dots" aria-hidden="true"></div>
+  <div class="afr-container afr-footer__inner">
+    <div class="afr-footer__grid">
+      <div>
+        <img
+          src="/assets/afrimmak-wordmark.png"
+          alt="Afrimmak"
+          height="44"
+          class="afr-footer__logo"
+        />
+        <p class="afr-footer__blurb">
+          Afrimmak equips young Gambians with practical skills, mentorship, and
+          the confidence to build their futures.
+        </p>
+        <div class="afr-footer__mif">
+          <div class="afr-footer__mif-label">A project of</div>
+          <div class="afr-footer__mif-name">Mendez Impact Foundation</div>
+        </div>
+      </div>
+
+      {cols.map((c) => (
+        <div>
+          <div class="eyebrow afr-footer__coltitle">{c.title}</div>
+          <ul class="afr-footer__list">
+            {c.items.map((it) => (
+              <li><a href={it.href}>{it.label}</a></li>
+            ))}
+          </ul>
+        </div>
+      ))}
+
+      <div>
+        <div class="eyebrow afr-footer__coltitle">Get in touch</div>
+        <div class="afr-footer__contact">
+          <a href="mailto:info@afrimmak.org">
+            <i data-lucide="mail"></i> info@afrimmak.org
+          </a>
+          <a href="#">
+            <i data-lucide="map-pin"></i> The Gambia
+          </a>
+        </div>
+        <div class="afr-footer__socials">
+          <a href="#" aria-label="WhatsApp"><i data-lucide="message-circle"></i></a>
+          <a href="#" aria-label="Facebook"><i data-lucide="facebook"></i></a>
+          <a href="#" aria-label="Instagram"><i data-lucide="instagram"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="afr-footer__bottom">
+      <div>© 2026 Afrimmak · A project of the Mendez Impact Foundation.</div>
+      <div class="afr-footer__legal">
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .afr-footer {
+    background: var(--ink-900);
+    color: rgba(255, 255, 255, 0.78);
+    padding: 72px 0 32px;
+    position: relative;
+    overflow: hidden;
+  }
+  .afr-footer__dots {
+    position: absolute;
+    inset: 0;
+    opacity: 0.06;
+    background-image: radial-gradient(white 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+  .afr-footer__inner { position: relative; }
+  .afr-footer__grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1.1fr;
+    gap: 40px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .afr-footer__logo {
+    display: block;
+    height: 44px;
+    margin-bottom: 18px;
+    filter: brightness(0) invert(1);
+  }
+  .afr-footer__blurb {
+    font-family: var(--font-body);
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0;
+    max-width: 320px;
+    color: rgba(255, 255, 255, 0.78);
+  }
+  .afr-footer__mif {
+    margin-top: 20px;
+    padding: 14px 16px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 14px;
+    max-width: 360px;
+  }
+  .afr-footer__mif-label {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--green-400);
+    margin-bottom: 4px;
+  }
+  .afr-footer__mif-name {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 15px;
+    color: white;
+  }
+  .afr-footer__coltitle { color: var(--green-400) !important; margin-bottom: 16px; }
+  .afr-footer__list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+  .afr-footer__list a {
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.78);
+    text-decoration: none;
+  }
+  .afr-footer__list a:hover { color: white; }
+
+  .afr-footer__contact {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    font-family: var(--font-body);
+    font-size: 14px;
+  }
+  .afr-footer__contact a {
+    color: rgba(255, 255, 255, 0.78);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .afr-footer__contact a:hover { color: white; }
+  .afr-footer__contact :global(svg) { width: 16px; height: 16px; color: var(--green-400); }
+
+  .afr-footer__socials { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+  .afr-footer__socials a {
+    width: 38px; height: 38px; border-radius: 999px;
+    background: rgba(255, 255, 255, 0.08);
+    display: inline-flex; align-items: center; justify-content: center;
+    color: rgba(255, 255, 255, 0.85);
+    transition: all 180ms var(--ease-out);
+  }
+  .afr-footer__socials a:hover { background: var(--green-500); color: white; }
+  .afr-footer__socials :global(svg) { width: 18px; height: 18px; }
+
+  .afr-footer__bottom {
+    margin-top: 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    font-family: var(--font-body);
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.55);
+  }
+  .afr-footer__legal { display: inline-flex; gap: 20px; }
+  .afr-footer__legal a { color: rgba(255, 255, 255, 0.55); text-decoration: none; }
+  .afr-footer__legal a:hover { color: white; }
+
+  @media (max-width: 860px) {
+    .afr-footer__grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+  }
+  @media (max-width: 560px) {
+    .afr-footer__grid { grid-template-columns: 1fr; }
+  }
+</style>

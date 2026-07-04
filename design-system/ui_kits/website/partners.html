@@ -1,0 +1,136 @@
+<!doctype html>
+<!-- @dsCard group="UI Kit — Website" name="Website · Partners" subtitle="Partnership types, logo grid, enquiry card" viewport="1280x900" -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Partners · Afrimmak</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../../colors_and_type.css">
+  <link rel="stylesheet" href="site.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel" src="Placeholder.jsx"></script>
+  <script type="text/babel" src="Nav.jsx"></script>
+  <script type="text/babel" src="Footer.jsx"></script>
+  <script type="text/babel" src="ApplyOverlay.jsx"></script>
+  <script type="text/babel" src="DonateOverlay.jsx"></script>
+  <script type="text/babel" src="PageShell.jsx"></script>
+
+  <script type="text/babel">
+    function Partners() {
+      return (
+        <PageShell current="Partners">
+          <PageBanner
+            eyebrow="Partners"
+            title={<>The people, organisations, and funders <span style={{ color: 'var(--afr-blue)' }}>making this possible.</span></>}
+            intro="We're early — and we're talking with anyone serious about backing young Gambians. Schools, training providers, employers, funders, diaspora networks, ministries. If that's you, let's talk."
+            accent="var(--afr-blue)" />
+
+          {/* Partner types */}
+          <section>
+            <div className="afr-container">
+              <div className="eyebrow" style={{ marginBottom: 12 }}>How we partner</div>
+              <h2 className="h2" style={{ margin: 0, marginBottom: 28 }}>Four ways to come in.</h2>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 16 }}>
+                {[
+                  { i: 'briefcase',     t: 'Funding partners',    d: 'Foundations, corporates, donors who back specific cohorts or operating costs.', tone: 'var(--afr-blue)' },
+                  { i: 'graduation-cap',t: 'Technical partners',  d: 'Trainers, curriculum partners, and tools providers who deliver alongside us.', tone: 'var(--green-600)' },
+                  { i: 'building-2',    t: 'Government & NGO',    d: 'Ministries, councils, and Gambian NGOs aligned on youth and skills.',          tone: 'var(--afr-red)' },
+                  { i: 'briefcase-business', t: 'Private sector', d: 'Employers offering apprenticeships, internships, and hiring pipelines.',     tone: 'var(--ink-900)' },
+                ].map((p, i) => (
+                  <div key={i} className="card" style={{ padding: 24 }}>
+                    <div style={{ width: 52, height: 52, borderRadius: 14, background: `${p.tone}14`, color: p.tone, display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 12 }}>
+                      <i data-lucide={p.i} style={{ width: 26, height: 26 }}></i>
+                    </div>
+                    <div style={{ fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: 17, color: 'var(--ink-900)' }}>{p.t}</div>
+                    <div style={{ fontFamily: 'var(--font-body)', fontSize: 13, lineHeight: 1.55, marginTop: 6, color: 'var(--ink-700)' }}>{p.d}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* Current partners grid */}
+          <section style={{ background: 'var(--paper-warm)' }}>
+            <div className="afr-container">
+              <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', marginBottom: 24, flexWrap: 'wrap', gap: 12 }}>
+                <div>
+                  <div className="eyebrow" style={{ marginBottom: 10 }}>Current partners</div>
+                  <h2 className="h2" style={{ margin: 0 }}>Who's in so far.</h2>
+                </div>
+                <DraftTag>Building the list</DraftTag>
+              </div>
+
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(6, 1fr)', gap: 0, border: '1px solid var(--ink-100)', borderRadius: 24, overflow: 'hidden', background: 'white' }}>
+                {[...Array(12)].map((_, i) => {
+                  const row = Math.floor(i / 6), col = i % 6;
+                  return (
+                    <div key={i} style={{
+                      padding: '6px',
+                      borderRight: col < 5 ? '1px solid var(--ink-100)' : 'none',
+                      borderBottom: row < 1 ? '1px solid var(--ink-100)' : 'none',
+                      minHeight: 110,
+                    }}>
+                      <Placeholder kind="Logo" label={`Partner ${i + 1}`} dense height="100%" />
+                    </div>
+                  );
+                })}
+              </div>
+
+              <div style={{ marginTop: 32, padding: 28, background: 'white', border: '1px solid var(--ink-100)', borderRadius: 20 }}>
+                <div className="eyebrow" style={{ color: 'var(--green-700)', marginBottom: 10 }}>From a partner</div>
+                <Placeholder kind="Quote"
+                  label="A partner endorsement quote"
+                  hint="One short, plain-spoken paragraph. Include name + title + organisation."
+                  height={120} />
+              </div>
+            </div>
+          </section>
+
+          {/* Approach */}
+          <section>
+            <div className="afr-container" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 48, alignItems: 'start' }}>
+              <div>
+                <div className="eyebrow" style={{ marginBottom: 12 }}>Our approach</div>
+                <h2 className="h2" style={{ margin: 0, marginBottom: 16 }}>What partnership looks like with us.</h2>
+                <Placeholder kind="Content" label="Partnership approach paragraph"
+                  hint="What makes a good partner? What does partnership look like in practice with Afrimmak? 2–3 sentences."
+                  height={160} />
+              </div>
+              <div className="card card-pop" style={{ padding: 36 }}>
+                <div className="eyebrow on-dark" style={{ marginBottom: 12 }}>Partnerships enquiries</div>
+                <h3 style={{ fontFamily: 'var(--font-display)', fontWeight: 900, fontSize: 28, color: 'white', margin: 0, letterSpacing: '-0.02em' }}>Want to partner?</h3>
+                <p style={{ fontFamily: 'var(--font-body)', fontSize: 15, color: 'rgba(255,255,255,0.85)', marginTop: 12, lineHeight: 1.55 }}>
+                  Drop us a note and we'll arrange a 20-minute call to see if there's a fit.
+                </p>
+                <div style={{ marginTop: 20, display: 'flex', flexDirection: 'column', gap: 10 }}>
+                  <a href="mailto:partners@afrimmak.org" className="btn btn-white" style={{ justifyContent: 'flex-start' }}>
+                    <i data-lucide="mail" className="icon"></i>
+                    partners@afrimmak.org
+                  </a>
+                  <a href="contact.html" className="btn btn-lg" style={{ background: 'transparent', color: 'white', border: '2px solid rgba(255,255,255,0.35)' }}>
+                    Open contact form
+                    <i data-lucide="arrow-right" className="icon"></i>
+                  </a>
+                </div>
+                <div style={{ marginTop: 16, fontFamily: 'var(--font-mono)', fontSize: 11, color: 'rgba(255,255,255,0.6)' }}>
+                  Contact person: [Name needed]
+                </div>
+              </div>
+            </div>
+          </section>
+        </PageShell>
+      );
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<Partners />);
+  </script>
+</body>
+</html>

@@ -1,0 +1,167 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+// AFRIMMAK — Terms of Use.
+// Plain-language terms for an informational marketing site. See the inline
+// {/* TODO */} note on Governing Law — that one needs a real decision before
+// this is relied upon.
+const lastUpdated = 'July 2026';
+---
+
+<BaseLayout
+  current=""
+  title="Terms of Use — Afrimmak"
+  description="The terms for using the Afrimmak website — what it's for, how to use it, and who owns the content. A project of the Mendez Impact Foundation."
+>
+  <section class="page-head">
+    <div class="afr-container">
+      <div class="legal">
+        <div class="eyebrow">Legal</div>
+        <h1 class="legal__title">Terms of Use</h1>
+        <p class="legal__updated">Last updated: {lastUpdated}</p>
+
+        <div class="legal__body">
+          <p class="lede">
+            These terms cover how you may use the Afrimmak website. They are
+            written plainly on purpose. By using this site, you agree to them.
+          </p>
+
+          <p>
+            Afrimmak is a project of the <strong>Mendez Impact Foundation</strong>,
+            based in Brusubi, West Coast Region, The Gambia. In these terms,
+            "we", "us", and "Afrimmak" mean the project and the Foundation
+            behind it.
+          </p>
+
+          <h2>Accepting these terms</h2>
+          <p>
+            Using this website means you accept these terms. If you do not agree
+            with them, please do not use the site. We may update the terms from
+            time to time (see "Changes" below), and continuing to use the site
+            after an update means you accept the new version.
+          </p>
+
+          <h2>What this site is for</h2>
+          <p>
+            This is an informational website. It exists to explain what Afrimmak
+            is, showcase our entrepreneurship and innovation competition and our
+            mission, and give you a way to get in touch.
+          </p>
+          <p>
+            It is <strong>not</strong> an application portal. You do not — and
+            cannot — apply to the competition through this site. If you want to
+            take part or learn more, the site points you to the Competition page
+            and the Contact page. Any information here about the competition,
+            including dates, prizes, and eligibility, may change, and some of it
+            is still being confirmed.
+          </p>
+
+          <h2>Intellectual property</h2>
+          <p>
+            The Afrimmak name, the Afrimmak logo and wordmark, and the text,
+            design, and images on this site belong to Afrimmak and the Mendez
+            Impact Foundation, unless clearly credited to someone else. You are
+            welcome to read and share links to our pages, but please do not copy,
+            reuse, or reproduce our branding or content for your own purposes
+            without asking us first.
+          </p>
+
+          <h2>Using the site responsibly</h2>
+          <p>
+            We ask a few sensible things of anyone using the site:
+          </p>
+          <ul>
+            <li>use the Contact form for genuine enquiries — not spam, abuse, or bulk messaging;</li>
+            <li>do not attempt to break into, disrupt, overload, or attack the site or its infrastructure;</li>
+            <li>do not use the site for anything unlawful, or in a way that harms others.</li>
+          </ul>
+          <p>
+            If you misuse the site, we may take steps to protect it and the
+            people who use it.
+          </p>
+
+          <h2>No warranty</h2>
+          <p>
+            We put real care into keeping this site accurate and available, but
+            we provide it "as is". We cannot promise it will always be
+            error-free, up to date, or online without interruption. Details about
+            the competition and the organisation may change as things develop.
+          </p>
+
+          <h2>Limitation of liability</h2>
+          <p>
+            To the extent the law allows, Afrimmak and the Mendez Impact
+            Foundation are not liable for any loss or damage arising from your
+            use of, or inability to use, this site — including relying on
+            information that later changes. Nothing in these terms limits any
+            rights you have that cannot legally be limited.
+          </p>
+
+          <h2>Governing law</h2>
+          <p>
+            {/* TODO (governing law): Do NOT assume Gambian law by default.
+                Confirm which jurisdiction's law should govern these terms and
+                where disputes should be handled, then replace this paragraph. */}
+            The law that governs these terms is still to be confirmed. We will
+            state the governing jurisdiction here once it has been decided.
+          </p>
+
+          <h2>Changes to these terms</h2>
+          <p>
+            We may update these terms as Afrimmak and the site develop. When we
+            do, we will change the "last updated" date at the top of this page.
+            Please check back now and then.
+          </p>
+
+          <h2>Contact</h2>
+          <p>
+            Questions about these terms? Email
+            <a href="mailto:info@afrimmak.org">info@afrimmak.org</a> or call
+            +220 3869939, and a real member of our team will get back to you.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-head { padding-top: 156px; padding-bottom: 64px; background: var(--paper); }
+
+  .legal { max-width: 760px; margin: 0 auto; }
+  .legal__title {
+    font-family: var(--font-display); font-weight: 900;
+    font-size: clamp(34px, 4.4vw, 52px);
+    line-height: 1.06; letter-spacing: -0.02em;
+    margin: 8px 0 8px;
+    color: var(--ink-900);
+  }
+  .legal__updated {
+    font-family: var(--font-body); font-size: 14px;
+    color: var(--ink-500); margin: 0 0 8px;
+  }
+
+  .legal__body { margin-top: 24px; }
+  .legal__body .lede { margin: 0 0 8px; }
+  .legal__body h2 {
+    font-family: var(--font-display); font-weight: 800;
+    font-size: 22px; line-height: 1.25; letter-spacing: -0.01em;
+    color: var(--ink-900);
+    margin: 44px 0 12px;
+  }
+  .legal__body p {
+    font-family: var(--font-body); font-size: 16px; line-height: 1.75;
+    color: var(--ink-800); margin: 0 0 16px;
+  }
+  .legal__body ul {
+    margin: 0 0 16px; padding-left: 22px;
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .legal__body li {
+    font-family: var(--font-body); font-size: 16px; line-height: 1.7;
+    color: var(--ink-800);
+  }
+  .legal__body a { color: var(--blue-600); text-decoration: underline; text-underline-offset: 2px; }
+  .legal__body a:hover { color: var(--blue-700); }
+  .legal__body strong { color: var(--ink-900); }
+</style>

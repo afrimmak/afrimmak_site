@@ -1,0 +1,24 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  current=""
+  title="Page not found — Afrimmak"
+  description="The page you were looking for isn't here. Head back to the Afrimmak home page or get in touch."
+>
+  <section class="page-head" style="text-align: center;">
+    <div class="afr-container">
+      <div class="eyebrow">Error 404</div>
+      <h1 class="h-display" style="margin: 8px 0 16px;">Page not found.</h1>
+      <p class="lede" style="max-width: 520px; margin: 0 auto 32px;">
+        The page you were looking for doesn't exist or may have moved. Let's get
+        you back on track.
+      </p>
+      <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+        <a href="/" class="btn btn-primary btn-lg">Back to home</a>
+        <a href="/contact" class="btn btn-ghost btn-lg">Get in touch</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

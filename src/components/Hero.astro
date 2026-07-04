@@ -1,0 +1,155 @@
+---
+// AFRIMMAK — Hero. Ported from ui_kits/website/Hero.jsx.
+// Paper-white hero: a full-bleed photo slot behind a solid copy capsule.
+---
+
+<header class="hero">
+  <!-- Full-bleed photo placeholder — reads as "hero photograph goes here". -->
+  <div class="hero__photo" aria-hidden="true">
+    <div class="hero__photo-grid"></div>
+    <div class="hero__photo-halo"></div>
+    <div class="hero__photo-pill">
+      <span></span> Needs: Photo — full-bleed hero
+    </div>
+    <p class="hero__photo-brief">
+      Warm-lit daylight photograph of young Gambians in a real Afrimmak setting —
+      classroom, workshop, or cohort group. Wide composition; subjects in the right
+      two-thirds so the copy capsule on the left stays legible.
+    </p>
+  </div>
+
+  <div class="afr-container hero__inner">
+    <div class="hero__capsule">
+      <div class="hero__eyebrow-chip">
+        <span class="hero__dot"></span>
+        <span class="eyebrow" style="color: var(--ink-700);">
+          A project of the Mendez Impact Foundation · The Gambia
+        </span>
+      </div>
+
+      <h1 class="h-display" style="margin: 0; color: var(--ink-900);">
+        Skills, mentorship,<br />
+        and a real shot —<br />
+        <span style="color: var(--afr-blue);">for young Gambians.</span>
+      </h1>
+
+      <p class="lede" style="margin-top: 24px; max-width: 540px;">
+        Afrimmak empowers young Africans through an entrepreneurship and
+        innovation competition — a platform to showcase ideas, find mentorship,
+        connect with industry leaders, and compete for funding and support.
+      </p>
+
+      <div class="hero__ctas">
+        <a href="/competition" class="btn btn-primary btn-lg">
+          Learn more
+          <i data-lucide="arrow-right"></i>
+        </a>
+        <a href="/contact" class="btn btn-ghost btn-lg">Get in touch</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<style>
+  .hero {
+    position: relative;
+    min-height: 720px;
+    padding-top: 180px;
+    padding-bottom: 120px;
+    background: var(--paper);
+    overflow: hidden;
+  }
+  .hero__photo {
+    position: absolute;
+    inset: 24px;
+    border-radius: 32px;
+    background: rgba(0, 72, 168, 0.05);
+    border: 2px dashed var(--blue-300);
+    overflow: hidden;
+    pointer-events: none;
+  }
+  .hero__photo-grid {
+    position: absolute;
+    inset: 0;
+    opacity: 0.6;
+    background-image: radial-gradient(rgba(0, 72, 168, 0.1) 1.2px, transparent 1.2px);
+    background-size: 28px 28px;
+  }
+  .hero__photo-halo {
+    position: absolute;
+    bottom: -160px; right: -160px;
+    width: 520px; height: 520px;
+    border-radius: 50%;
+    background: radial-gradient(closest-side, rgba(111, 197, 46, 0.22), transparent 70%);
+  }
+  .hero__photo-pill {
+    position: absolute;
+    top: 24px; right: 24px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--afr-red);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 999px;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    box-shadow: 0 8px 20px rgba(238, 42, 48, 0.35);
+  }
+  .hero__photo-pill span { width: 6px; height: 6px; border-radius: 3px; background: white; }
+  .hero__photo-brief {
+    position: absolute;
+    bottom: 28px; right: 32px;
+    max-width: 320px;
+    text-align: right;
+    font-family: var(--font-body);
+    font-size: 12px;
+    line-height: 1.55;
+    color: var(--ink-500);
+  }
+
+  .hero__inner {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 640px);
+  }
+  .hero__capsule {
+    background: white;
+    border: 1px solid var(--ink-100);
+    border-radius: 28px;
+    padding: 40px 44px 44px;
+    box-shadow: 0 24px 64px rgba(10, 26, 51, 0.1);
+  }
+  .hero__eyebrow-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--paper-warm);
+    border: 1px solid var(--ink-100);
+    border-radius: 999px;
+    padding: 6px 14px;
+    margin-bottom: 24px;
+  }
+  .hero__dot {
+    width: 8px; height: 8px;
+    border-radius: 4px;
+    background: var(--afr-red);
+    box-shadow: 0 0 0 4px rgba(238, 42, 48, 0.18);
+  }
+  .hero__ctas {
+    display: flex;
+    gap: 12px;
+    margin-top: 32px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 720px) {
+    .hero { padding-top: 140px; padding-bottom: 80px; min-height: 0; }
+    .hero__photo-brief { display: none; }
+    .hero__capsule { padding: 28px 24px 32px; }
+  }
+</style>

@@ -1,0 +1,127 @@
+---
+import '../styles/tokens.css';
+import '../styles/site.css';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+  current?: string;
+}
+
+const {
+  title = 'Afrimmak — Building Africa Through Young Minds',
+  description = 'Afrimmak equips young Gambians with practical skills, mentorship, and the confidence to build their own futures. A project of the Mendez Impact Foundation.',
+  current = 'Home',
+} = Astro.props;
+
+// Organization structured data (JSON-LD). Only fields we can stand behind —
+// nothing invented. Rendered once in <head> on every page.
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'AFRIMMAK',
+  url: 'https://afrimmak.org',
+  logo: 'https://afrimmak.org/assets/afrimmak-logo.png',
+  email: 'info@afrimmak.org',
+  telephone: '+220 3869939',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Brusubi',
+    addressRegion: 'West Coast Region',
+    addressCountry: 'GM',
+  },
+  parentOrganization: {
+    '@type': 'Organization',
+    name: 'Mendez Impact Foundation',
+  },
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={Astro.url.href} />
+
+    <!-- Favicons / PWA manifest -->
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#0048A8" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url.href} />
+
+    <!-- Twitter — og:image / twitter:image intentionally omitted until a real
+         share image exists (follow-up task). -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <!-- Organization structured data -->
+    <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+
+    <style>
+      /* Skip-to-content link: off-screen until focused by keyboard. */
+      .skip-link {
+        position: absolute;
+        left: 12px;
+        top: -60px;
+        z-index: 2000;
+        padding: 10px 18px;
+        background: var(--blue-600);
+        color: #fff;
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 14px;
+        text-decoration: none;
+        border-radius: 999px;
+        transition: top 0.15s ease;
+      }
+      .skip-link:focus {
+        top: 12px;
+        outline: 3px solid var(--afr-green);
+        outline-offset: 2px;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <Nav current={current} />
+    <main id="main-content">
+      <slot />
+    </main>
+    <Footer />
+
+    <!-- Lucide icons (1.75px stroke per design system). Only the icons the
+         site actually uses are imported, to keep the bundle small. Add new
+         ones here as you use them. -->
+    <script>
+      import {
+        createIcons,
+        ArrowRight, Menu, Mail, MapPin, Phone, Check,
+        Compass, Network, Presentation, Trophy, Lightbulb, Rocket,
+        School, HandCoins, UsersRound, Building2,
+        MessageCircle, Facebook, Instagram,
+      } from 'lucide';
+      createIcons({
+        icons: {
+          ArrowRight, Menu, Mail, MapPin, Phone, Check,
+          Wrench, Rocket, Users, School, HandCoins, UsersRound, Building2,
+          MessageCircle, Facebook, Instagram,
+        },
+        attrs: { 'stroke-width': 1.75 },
+      });
+    </script>
+  </body>
+</html>

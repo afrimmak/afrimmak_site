@@ -1,0 +1,7 @@
+/* ============================================================
+   AFRIMMAK — Design System entry stylesheet
+   Single link target for consumers. Pulls in all global tokens
+   and base element/typography styles.
+   ============================================================ */
+
+@import url('colors_and_type.css');

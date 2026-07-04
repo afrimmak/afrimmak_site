@@ -1,0 +1,298 @@
+/* ============================================================
+   AFRIMMAK — Design Tokens
+   Building Africa Through Young Minds
+   ============================================================ */
+
+/* ---------- Brand font (uploaded) ---------- */
+@font-face {
+  font-family: 'Ethnocentric';
+  src: url('fonts/Ethnocentric-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ---------- Supporting Google Fonts (Inter for UI/body, Nunito for warm marketing,
+   Montserrat as a fallback heavy display next to Ethnocentric) ---------- */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&family=Nunito:wght@400;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+:root {
+  /* ============================================================
+     COLOR — Brand Core
+     Sampled directly from the Afrimmak logo.
+     ============================================================ */
+  --afr-blue:        #0048A8;   /* "AFRi" wordmark — primary */
+  --afr-green:       #6FC52E;   /* "MMAK" wordmark — secondary */
+  --afr-red:         #EE2A30;   /* lightbulb — accent */
+  --afr-ink:         #0A1A33;   /* tagline / body ink */
+  --afr-paper:       #FFFFFF;   /* canvas */
+
+  /* ---------- Blue scale (primary) ---------- */
+  --blue-50:   #EAF1FB;
+  --blue-100:  #C9DCF3;
+  --blue-200:  #94B7E5;
+  --blue-300:  #5E92D7;
+  --blue-400:  #2D6FC4;
+  --blue-500:  #0048A8;   /* core */
+  --blue-600:  #003A8A;
+  --blue-700:  #002E6E;
+  --blue-800:  #002253;
+  --blue-900:  #001637;
+
+  /* ---------- Green scale (secondary) ---------- */
+  --green-50:  #F1FBE6;
+  --green-100: #DEF4C2;
+  --green-200: #C0E993;
+  --green-300: #A1DD64;
+  --green-400: #88D247;
+  --green-500: #6FC52E;   /* core */
+  --green-600: #5AA722;
+  --green-700: #45851A;
+  --green-800: #316213;
+  --green-900: #1F400B;
+
+  /* ---------- Red scale (accent) ---------- */
+  --red-50:    #FDE7E8;
+  --red-100:   #F9BFC1;
+  --red-200:   #F4878B;
+  --red-300:   #F15359;
+  --red-400:   #EF3A40;
+  --red-500:   #EE2A30;   /* core */
+  --red-600:   #C81F25;
+  --red-700:   #9F181D;
+  --red-800:   #761115;
+  --red-900:   #4D0A0D;
+
+  /* ---------- Neutrals ---------- */
+  --ink-900:   #0A1A33;   /* primary text */
+  --ink-700:   #2A3852;
+  --ink-500:   #5A6577;
+  --ink-300:   #98A0AE;
+  --ink-200:   #C5CAD3;
+  --ink-100:   #E5E7EC;
+  --ink-50:    #F4F6F9;
+  --paper:     #FFFFFF;
+  --paper-warm:#FBFAF6;   /* off-white for long-form */
+
+  /* ---------- Semantic foreground / background ---------- */
+  --fg-1: var(--ink-900);   /* primary text */
+  --fg-2: var(--ink-700);   /* secondary text */
+  --fg-3: var(--ink-500);   /* tertiary / captions */
+  --fg-inverse: var(--paper);
+  --fg-link: var(--blue-600);
+  --fg-link-hover: var(--blue-700);
+
+  --bg-1: var(--paper);     /* primary surface */
+  --bg-2: var(--ink-50);    /* sunken surface, panels */
+  --bg-3: var(--ink-100);   /* dividers, well */
+  --bg-brand: var(--blue-500);
+  --bg-brand-soft: var(--blue-50);
+  --bg-success: var(--green-500);
+  --bg-success-soft: var(--green-50);
+  --bg-danger: var(--red-500);
+  --bg-danger-soft: var(--red-50);
+
+  /* ---------- Semantic ---------- */
+  --color-success: var(--green-600);
+  --color-warning: #E89B12;
+  --color-danger:  var(--red-500);
+  --color-info:    var(--blue-500);
+
+  /* ---------- Borders ---------- */
+  --border-1: var(--ink-100);
+  --border-2: var(--ink-200);
+  --border-strong: var(--ink-900);
+  --border-brand: var(--blue-500);
+
+  /* ============================================================
+     TYPOGRAPHY
+     Display: Montserrat (logo-adjacent heavy geometric sans).
+     UI/Body: Inter.
+     Friendly/Marketing: Nunito (rounded, youth-friendly).
+     ============================================================ */
+  /* Display: Montserrat (heavy geometric sans) for hero headlines, eyebrows,
+     subheads. Used everywhere in the UI except the logo wordmark.
+     The Afrimmak logo image (assets/afrimmak-logo.png) is the canonical
+     rendering of the brand mark — never recreate the wordmark in CSS text
+     unless you need a tiny inline lockup, in which case use --font-logo. */
+  --font-display: 'Montserrat', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-body:    'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-friendly:'Nunito', system-ui, sans-serif;
+  --font-mono:    'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* Logo-only display face. Use ONLY for the inline AFRiMMAK wordmark when
+     an image isn't possible; never for body, headings, or UI. */
+  --font-logo:    'Ethnocentric', 'Montserrat', system-ui, sans-serif;
+
+  /* Type scale (modular, ~1.25) */
+  --fs-12: 0.75rem;
+  --fs-14: 0.875rem;
+  --fs-16: 1rem;
+  --fs-18: 1.125rem;
+  --fs-20: 1.25rem;
+  --fs-24: 1.5rem;
+  --fs-30: 1.875rem;
+  --fs-36: 2.25rem;
+  --fs-48: 3rem;
+  --fs-60: 3.75rem;
+  --fs-72: 4.5rem;
+
+  --lh-tight: 1.1;   /* @kind other */
+  --lh-snug:  1.25;  /* @kind other */
+  --lh-base:  1.5;   /* @kind other */
+  --lh-loose: 1.75;  /* @kind other */
+
+  --tracking-tight:  -0.02em;
+  --tracking-normal: 0;
+  --tracking-wide:   0.04em;
+  --tracking-caps:   0.08em;
+
+  /* ============================================================
+     SPACING (8pt grid, with 4 half-step)
+     ============================================================ */
+  --space-0: 0;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+
+  /* ============================================================
+     RADII — Afrimmak uses bold, friendly, generously rounded
+     shapes (echoing the rounded letterforms of the wordmark).
+     ============================================================ */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-2xl: 32px;
+  --radius-pill: 999px;
+
+  /* ============================================================
+     ELEVATION
+     ============================================================ */
+  --shadow-xs: 0 1px 2px rgba(10, 26, 51, 0.06);
+  --shadow-sm: 0 2px 6px rgba(10, 26, 51, 0.08);
+  --shadow-md: 0 8px 20px rgba(10, 26, 51, 0.10);
+  --shadow-lg: 0 16px 40px rgba(10, 26, 51, 0.14);
+  --shadow-brand: 0 12px 32px rgba(0, 72, 168, 0.28);
+  --shadow-accent: 0 12px 32px rgba(238, 42, 48, 0.28);
+  --shadow-inset: inset 0 1px 0 rgba(255,255,255,0.4), inset 0 -1px 0 rgba(10,26,51,0.06);
+
+  /* ============================================================
+     MOTION
+     ============================================================ */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);     /* @kind other */
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);  /* @kind other */
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1); /* @kind other */
+  --dur-fast: 120ms;  /* @kind other */
+  --dur-base: 220ms;  /* @kind other */
+  --dur-slow: 420ms;  /* @kind other */
+
+  /* ============================================================
+     LAYOUT
+     ============================================================ */
+  --container-narrow: 720px;
+  --container-base:   1080px;
+  --container-wide:   1280px;
+  --container-full:   1440px;
+}
+
+/* ============================================================
+   BASE — element defaults / semantic helpers
+   ============================================================ */
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--fs-16);
+  line-height: var(--lh-base);
+  color: var(--fg-1);
+  background: var(--bg-1);
+}
+
+.h-display, h1, .text-h1 {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: var(--fs-60);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tracking-tight);
+  color: var(--fg-1);
+}
+
+.text-h2, h2 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--fs-48);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tracking-tight);
+}
+.text-h3, h3 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--fs-36);
+  line-height: var(--lh-snug);
+  letter-spacing: -0.01em;
+}
+.text-h4, h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--fs-24);
+  line-height: var(--lh-snug);
+}
+.text-eyebrow {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--fs-12);
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--blue-600);
+}
+.text-lede, .lede {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: var(--fs-20);
+  line-height: var(--lh-loose);
+  color: var(--fg-2);
+}
+.text-body, p {
+  font-family: var(--font-body);
+  font-size: var(--fs-16);
+  line-height: var(--lh-loose);
+  color: var(--fg-1);
+}
+.text-small {
+  font-size: var(--fs-14);
+  color: var(--fg-2);
+}
+.text-caption {
+  font-size: var(--fs-12);
+  color: var(--fg-3);
+}
+.text-mono, code, pre {
+  font-family: var(--font-mono);
+  font-size: 0.95em;
+}
+
+/* Brand text helpers */
+.t-blue   { color: var(--afr-blue); }
+.t-green  { color: var(--afr-green); }
+.t-red    { color: var(--afr-red); }
+.t-ink    { color: var(--afr-ink); }
+
+/* Bicolor wordmark utility — matches the logo "AFRi / MMAK" split */
+.afr-wordmark {
+  font-family: var(--font-logo);
+  font-weight: 400; /* Ethnocentric ships only in Regular */
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+.afr-wordmark .afri { color: var(--afr-blue); }
+.afr-wordmark .mmak { color: var(--afr-green); }

@@ -1,0 +1,140 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+// What participants get from the competition.
+const benefits = [
+  { icon: 'compass', title: 'Mentorship', body: 'One-to-one and small-group guidance from people who have built ventures and know the terrain.', accent: 'var(--afr-blue)', soft: 'var(--blue-50)' },
+  { icon: 'network', title: 'Industry connections', body: 'Direct introductions to industry leaders, investors, and operators who can open doors.', accent: 'var(--green-600)', soft: 'var(--green-50)' },
+  { icon: 'presentation', title: 'A platform to showcase', body: 'A stage to put your idea in front of the people who matter — judges, partners, and peers.', accent: 'var(--ink-900)', soft: 'var(--ink-50)' },
+  { icon: 'trophy', title: 'Funding & support', body: 'Compete for funding and the wraparound support that turns a promising idea into a real venture.', accent: 'var(--afr-red)', soft: 'var(--red-50)' },
+];
+
+const faqs = [
+  { q: 'Who can enter?', a: 'Students and young entrepreneurs across Africa with an idea worth backing. You bring the ambition and the idea — no track record of past ventures required.' },
+  { q: 'What do winners receive?', a: 'Winners compete for funding and support to help turn their idea into a sustainable venture. Exact prizes and funding amounts for the next cycle are still being confirmed (TBC).' },
+  { q: 'How does mentorship work?', a: 'Participants are paired with mentors and connected to industry leaders through the competition — guidance on shaping the idea, the pitch, and the plan to build it out.' },
+  { q: 'Is there a cost to participate?', a: 'No. Taking part in the competition is free. We do not charge entry fees.' },
+  { q: 'When is the next competition cycle?', a: 'The first cycle is being planned now. Dates are still to be confirmed (TBC) — get in touch to be the first to hear when entries open.' },
+];
+---
+
+<BaseLayout
+  current="Competition"
+  title="The Competition — Afrimmak"
+  description="A free competition for students and young entrepreneurs across Africa. Pitch your idea, get matched with mentors, and compete for funding to launch a sustainable venture."
+>
+  <section class="page-head">
+    <div class="afr-container">
+      <div class="eyebrow">The competition</div>
+      <h1 class="h-display" style="margin: 8px 0 16px; max-width: 820px;">One competition. Africa's next generation of innovators.</h1>
+      <p class="lede" style="max-width: 640px;">
+        AFRIMMAK is a platform that empowers young Africans through
+        entrepreneurship and innovation competitions — a single stage where
+        students and young entrepreneurs showcase their ideas, find mentorship,
+        and compete for the support to build something real.
+      </p>
+    </div>
+  </section>
+
+  <!-- THE COMPETITION — single detail block -->
+  <section class="tight">
+    <div class="afr-container">
+      <article class="comp card">
+        <div class="comp__photo">
+          <span class="comp__badge">Needs: competition photo — pitch / showcase moment</span>
+        </div>
+        <div class="comp__body">
+          <span class="badge badge-green">First cycle in planning</span>
+          <h2 class="h2" style="margin: 14px 0 14px;">An entrepreneurship &amp; innovation competition.</h2>
+          <p class="lede" style="margin: 0 0 16px; max-width: 620px;">
+            We give students and young entrepreneurs the opportunity to showcase
+            their ideas, receive mentorship, connect with industry leaders, and
+            compete for funding and support.
+          </p>
+          <p style="color: var(--ink-700); margin: 0 0 28px; max-width: 620px;">
+            Our goal is to uncover Africa's next generation of innovators and
+            help them transform their ideas into sustainable ventures — and in
+            the process, provide solutions to Africa's problems.
+          </p>
+
+          <div class="comp__benefits">
+            {benefits.map((b) => (
+              <div class="comp__benefit">
+                <div class="comp__benefit-icon" style={`background: ${b.soft};`}>
+                  <i data-lucide={b.icon} style={`color: ${b.accent};`}></i>
+                </div>
+                <div>
+                  <h3 class="h3" style="font-size: 16px; margin: 0 0 4px;">{b.title}</h3>
+                  <p style="margin: 0; font-size: 14px; color: var(--ink-700);">{b.body}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div class="comp__ctas">
+            <a href="/contact" class="btn btn-primary">Get in touch <i data-lucide="arrow-right"></i></a>
+            <a href="/about" class="btn btn-ghost">Learn about Afrimmak</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- FAQs -->
+  <section style="background: var(--paper-warm);">
+    <div class="afr-container">
+      <div class="faq-head">
+        <div class="eyebrow">FAQs</div>
+        <h2 class="h2" style="margin: 8px 0 0;">How the competition works.</h2>
+      </div>
+      <div class="faqs">
+        {faqs.map((f) => (
+          <div class="card faq">
+            <h3 class="h3" style="font-size: 17px; margin: 0 0 8px;">{f.q}</h3>
+            <p style="margin: 0; font-size: 14px; color: var(--ink-700);">{f.a}</p>
+          </div>
+        ))}
+      </div>
+      <div class="faq-cta">
+        <p style="margin: 0; color: var(--ink-700);">Still have a question, or want to know when entries open?</p>
+        <a href="/contact" class="btn btn-primary">Get in touch <i data-lucide="arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-head { padding-top: 156px; padding-bottom: 64px; background: var(--paper); }
+
+  .comp { display: grid; grid-template-columns: 380px 1fr; gap: 0; padding: 0; overflow: hidden; }
+  .comp__photo {
+    position: relative;
+    background:
+      repeating-linear-gradient(45deg, transparent 0 14px, rgba(255,255,255,0.05) 14px 15px),
+      linear-gradient(135deg, #3B5A8E, #0048A8 60%, #002E6E);
+    min-height: 360px;
+  }
+  .comp__badge { position: absolute; bottom: 20px; left: 24px; right: 24px; font-family: var(--font-mono); font-size: 11px; color: rgba(255,255,255,0.85); }
+  .comp__body { padding: 44px 48px; }
+
+  .comp__benefits { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .comp__benefit { display: grid; grid-template-columns: 44px 1fr; gap: 14px; align-items: start; }
+  .comp__benefit-icon { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; }
+  .comp__benefit-icon :global(svg) { width: 22px; height: 22px; }
+
+  .comp__ctas { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 32px; }
+
+  .faq-head { margin-bottom: 40px; }
+  .faqs { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .faq { padding: 24px; }
+
+  .faq-cta { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; margin-top: 40px; padding: 28px 32px; background: white; border: 1px solid var(--ink-100); border-radius: var(--radius-lg, 20px); }
+
+  @media (max-width: 860px) {
+    .comp { grid-template-columns: 1fr; }
+    .comp__photo { min-height: 200px; }
+    .comp__body { padding: 32px 28px; }
+    .comp__benefits { grid-template-columns: 1fr; }
+    .faqs { grid-template-columns: 1fr; }
+  }
+</style>

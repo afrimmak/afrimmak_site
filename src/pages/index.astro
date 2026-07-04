@@ -1,0 +1,204 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+
+// The competition journey — process only, no numeric claims.
+const steps = [
+  { icon: 'lightbulb', title: 'Pitch', body: 'Submit and pitch your idea through the competition.', accent: 'var(--afr-blue)', soft: 'var(--blue-50)' },
+  { icon: 'users-round', title: 'Mentorship', body: 'Get matched with mentors who sharpen your idea and your plan.', accent: 'var(--green-600)', soft: 'var(--green-50)' },
+  { icon: 'network', title: 'Network', body: 'Connect with industry leaders and other young innovators.', accent: 'var(--ink-900)', soft: 'var(--ink-50)' },
+  { icon: 'rocket', title: 'Fund & Launch', body: 'Compete for funding and support to launch a real, sustainable venture.', accent: 'var(--afr-red)', soft: 'var(--red-50)' },
+];
+
+// What participants get from the competition.
+const benefits = [
+  { icon: 'compass', title: 'Mentorship', body: 'Guidance from people who have built ventures.', accent: 'var(--afr-blue)', soft: 'var(--blue-50)' },
+  { icon: 'network', title: 'Industry connections', body: 'Introductions to leaders who can open doors.', accent: 'var(--green-600)', soft: 'var(--green-50)' },
+  { icon: 'trophy', title: 'Funding & support', body: 'Compete for the backing to build something real.', accent: 'var(--afr-red)', soft: 'var(--red-50)' },
+];
+---
+
+<BaseLayout
+  current="Home"
+  title="Afrimmak — Skills, mentorship, and a real shot for young Gambians"
+  description="Afrimmak runs a free entrepreneurship and innovation competition for young Africans — offering mentorship, industry connections, and funding to turn ideas into real ventures."
+>
+  <Hero />
+
+  <!-- HOW IT WORKS -->
+  <section class="tight" style="background: var(--paper-warm);">
+    <div class="afr-container">
+      <div style="text-align: center; max-width: 620px; margin: 0 auto 56px;">
+        <div class="eyebrow">How it works</div>
+        <h2 class="h2" style="margin: 8px 0 12px;">From idea to impact.</h2>
+        <p class="lede" style="margin: 0;">
+          Afrimmak's entrepreneurship competition takes your idea through four
+          stages — here's what that looks like.
+        </p>
+      </div>
+      <div class="steps-flow">
+        {steps.map((s, i) => (
+          <div class="step-flow">
+            <div class="step-flow__icon" style={`background: ${s.soft};`}>
+              <i data-lucide={s.icon} style={`color: ${s.accent};`}></i>
+              <span class="step-flow__num">{i + 1}</span>
+            </div>
+            <h3 class="h3" style="font-size: 18px; margin: 0 0 6px;">{s.title}</h3>
+            <p style="margin: 0; font-size: 14px; color: var(--ink-700);">{s.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- THE COMPETITION -->
+  <section>
+    <div class="afr-container comp-feature">
+      <div class="comp-feature__copy">
+        <div class="eyebrow">Our work</div>
+        <h2 class="h2" style="margin: 8px 0 16px;">One competition. Africa's next innovators.</h2>
+        <p class="lede" style="margin: 0 0 16px; max-width: 520px;">
+          AFRIMMAK empowers young Africans through an entrepreneurship and
+          innovation competition — a single platform where students and young
+          entrepreneurs showcase their ideas and compete for the support to
+          build them into sustainable ventures that solve real African problems.
+        </p>
+        <a href="/competition" class="btn btn-primary">Learn more <i data-lucide="arrow-right"></i></a>
+      </div>
+      <div class="comp-feature__benefits">
+        {benefits.map((b) => (
+          <div class="card comp-feature__benefit">
+            <div class="comp-feature__icon" style={`background: ${b.soft};`}>
+              <i data-lucide={b.icon} style={`color: ${b.accent};`}></i>
+            </div>
+            <div>
+              <h3 class="h3" style="font-size: 17px; margin: 0 0 4px;">{b.title}</h3>
+              <p style="margin: 0; font-size: 14px; color: var(--ink-700);">{b.body}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- PARTNERS STRIP -->
+  <section style="background: var(--paper-warm);">
+    <div class="afr-container afr-partners">
+      <div>
+        <div class="eyebrow">Partners</div>
+        <h2 class="h2" style="margin: 8px 0 16px;">Building our partner network.</h2>
+        <p class="lede" style="margin: 0 0 24px; max-width: 420px;">
+          We're talking with schools, training providers, funders, and Gambian
+          businesses who want to help. Want to be one of them?
+        </p>
+        <a href="/partners" class="btn btn-primary">Partner with us <i data-lucide="arrow-right"></i></a>
+      </div>
+      <div class="afr-logos">
+        {Array.from({ length: 6 }).map((_, i) => (
+          <div class="afr-logo-slot">Partner {i + 1}</div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- GET INVOLVED CTA -->
+  <section class="tight" style="background: var(--afr-blue); color: white;">
+    <div class="afr-container" style="text-align: center;">
+      <h2 class="h2" style="color: white; margin: 0 0 12px;">Want to be part of it?</h2>
+      <p class="lede" style="color: rgba(255,255,255,0.85); max-width: 480px; margin: 0 auto 28px;">
+        Learn how the competition works, or reach out to get involved — as a
+        future participant, mentor, or partner.
+      </p>
+      <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+        <a href="/competition" class="btn btn-secondary btn-lg">Learn more</a>
+        <a href="/contact" class="btn btn-white btn-lg">Get in touch</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* How it works — 4-step process with a subtle connector line. */
+  .steps-flow {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
+  }
+  /* Connector runs between the icon centres (col centres at 12.5% / 87.5%). */
+  .steps-flow::before {
+    content: '';
+    position: absolute;
+    top: 32px;
+    left: 12.5%;
+    right: 12.5%;
+    height: 2px;
+    background: repeating-linear-gradient(90deg, var(--ink-200) 0 6px, transparent 6px 12px);
+    z-index: 0;
+  }
+  .step-flow { position: relative; z-index: 1; text-align: center; padding: 0 8px; }
+  .step-flow__icon {
+    position: relative;
+    width: 64px; height: 64px;
+    border-radius: 999px;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 18px;
+    box-shadow: var(--shadow-sm, 0 4px 12px rgba(10, 26, 51, 0.06));
+  }
+  .step-flow__icon :global(svg) { width: 28px; height: 28px; }
+  .step-flow__num {
+    position: absolute;
+    top: -4px; right: -4px;
+    width: 22px; height: 22px;
+    border-radius: 999px;
+    background: var(--ink-900);
+    color: white;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 12px;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .comp-feature {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+  .comp-feature__benefits { display: flex; flex-direction: column; gap: 16px; }
+  .comp-feature__benefit { display: grid; grid-template-columns: 52px 1fr; gap: 16px; align-items: center; padding: 20px 24px; }
+  .comp-feature__icon {
+    width: 52px; height: 52px;
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .comp-feature__icon :global(svg) { width: 26px; height: 26px; }
+
+  .afr-partners {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+  .afr-logos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .afr-logo-slot {
+    height: 72px;
+    background: white;
+    border: 1px solid var(--ink-100);
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--ink-300);
+    font-size: 13px;
+    font-family: var(--font-mono);
+  }
+
+  @media (max-width: 860px) {
+    .steps-flow { grid-template-columns: repeat(2, 1fr); gap: 36px 28px; }
+    .steps-flow::before { display: none; }
+    .comp-feature { grid-template-columns: 1fr; gap: 32px; }
+    .afr-partners { grid-template-columns: 1fr; gap: 32px; }
+  }
+  @media (max-width: 520px) {
+    .steps-flow { grid-template-columns: 1fr; gap: 32px; }
+  }
+</style>

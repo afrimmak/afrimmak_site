@@ -1,0 +1,195 @@
+AFRIMMAK Project | Website Content Checklist
+Items marked * are required before launch | Mendez Impact Foundation
+AFRIMMAK Website
+Content Checklist
+Hand this to whoever is responsible for each section
+How to use this checklist: Tick each box as content is delivered. Items marked * are required before the site
+can launch. Tags show the type of content needed.
+Written text Photo Video File Form Must have
+1. Home page
+The first thing visitors see. It needs to immediately explain what AFRIMMAK is and give people a clear next step.
+☐ Organisation name and official tagline * Must have
+☐ Hero headline *
+1–2 punchy sentences. What is AFRIMMAK and who is it for?
+Written text
+☐ Hero image or banner photo *
+Young Gambians in the programme — training, building, collaborating
+Photo
+☐ Short intro paragraph for the hero section *
+3 sentences maximum
+Written text
+☐ Key impact numbers *
+e.g. youth trained, businesses started, communities reached — even early estimates
+Must have
+☐ Brief descriptions of 2–3 featured programmes * Written text
+☐ Explainer video *
+2–4 minutes. What is AFRIMMAK, who is it for, why does it matter. Host on YouTube, embed
+here.
+Video
+☐ 1–3 testimonials from participants or partners
+Name, quote, and photo if available
+Written text
+☐ Partner logos for the homepage strip
+PNG or SVG on transparent background
+File
+☐ Call-to-action button text and destination *
+e.g. 'Apply Now', 'Learn More'
+Must have
+☐ Social media handles *
+Facebook, Instagram, WhatsApp — all active accounts
+Must have
+
+-- 1 of 5 --
+
+AFRIMMAK Project | Website Content Checklist
+Items marked * are required before launch | Mendez Impact Foundation
+2. Programme page
+The most important page for youth applicants. Every programme needs its own complete set of information.
+FOR EACH PROGRAMME
+☐ Full programme name * Must have
+☐ Programme description *
+What it is, what participants learn, what they gain — 2 to 4 sentences
+Written text
+☐ Who it is for *
+Age range, eligibility, location requirements
+Written text
+☐ Duration and format *
+How long, in-person or online, where it takes place
+Must have
+☐ What participants receive *
+Certificate, mentorship, funding, materials, tools — be specific
+Written text
+☐ Key dates *
+Intake periods, application deadlines, start dates
+Must have
+☐ At least one photo per programme *
+Real activity or participants — no stock photos
+Photo
+☐ One graduate success story per programme
+Name, what they did in the programme, what they went on to achieve
+Written text
+☐ Graduate photo (with permission) Photo
+SHARED ACROSS ALL PROGRAMMES
+☐ Application process — step by step *
+How does someone apply? What happens after they apply?
+Written text
+☐ Application form *
+Google Form is fine to start
+Form
+☐ FAQs — at least 5 questions and answers Written text
+3. Partners page
+Shows credibility to funders and attracts new partners. Keep it visual and concise.
+☐ List of all current partners — official names * Must have
+☐ Logo for each partner * File
+
+-- 2 of 5 --
+
+AFRIMMAK Project | Website Content Checklist
+Items marked * are required before launch | Mendez Impact Foundation
+High-resolution PNG or SVG, white or transparent background
+☐ One-sentence description of each partnership
+What do they contribute or collaborate on?
+Written text
+☐ Partner type for each
+Funding / technical / government / NGO / private sector
+Written text
+☐ Endorsement quote from any partner
+Include speaker name and title
+Written text
+☐ Short paragraph on AFRIMMAK's approach to partnership
+What makes a good partner? What does partnership look like in practice?
+Written text
+☐ Contact name and email for partnership enquiries * Must have
+4. About page
+Where funders, diaspora, and media go first. Tells the story behind the project.
+ORGANISATION
+☐ Origin story *
+When was AFRIMMAK founded, by whom, and why? 1 short paragraph.
+Written text
+☐ Mission statement *
+One sentence — what AFRIMMAK does and for whom
+Must have
+☐ Vision statement *
+One sentence — the long-term change AFRIMMAK works toward
+Must have
+☐ Core values
+3 to 5 values, each with a brief explanation
+Written text
+☐ Problem statement *
+What problem exists in The Gambia that AFRIMMAK addresses?
+Written text
+☐ Key milestones or timeline
+Important moments in AFRIMMAK's history
+Written text
+☐ Note on Mendez Impact Foundation *
+One paragraph explaining that AFRIMMAK is a project of MIF
+Written text
+TEAM
+☐ Founder name, title, and bio *
+100 to 150 words — background, motivation, role
+Written text
+
+-- 3 of 5 --
+
+AFRIMMAK Project | Website Content Checklist
+Items marked * are required before launch | Mendez Impact Foundation
+☐ Founder photo *
+Clear, professional or well-lit — not a passport photo
+Photo
+☐ Other key team members — name and title Written text
+☐ 2-sentence bio for each team member Written text
+☐ Photo for each team member Photo
+☐ Team photo (group) Photo
+5. Contact page
+Keep it simple. People should be able to reach AFRIMMAK in under 10 seconds.
+☐ Official contact email address * Must have
+☐ Phone number *
+WhatsApp-enabled preferred
+Must have
+☐ Physical address or area of operation * Must have
+☐ Office hours
+Days and times the team is reachable
+Written text
+☐ Contact form fields *
+Name, email, message, type of enquiry
+Form
+☐ WhatsApp link *
+Direct link so mobile users can message instantly
+Must have
+☐ All active social media links * Must have
+☐ Short welcoming sentence above the form
+Sets a friendly tone — one sentence is enough
+Written text
+☐ Separate contact points by enquiry type
+e.g. programmes, media, partnerships — if different people handle each
+Written text
+Global assets — needed across all pages
+☐ AFRIMMAK logo *
+High-resolution PNG on transparent background, and SVG if available
+File
+
+-- 4 of 5 --
+
+AFRIMMAK Project | Website Content Checklist
+Items marked * are required before launch | Mendez Impact Foundation
+☐ Brand colours *
+Primary and secondary hex colour codes
+Must have
+☐ Brand fonts *
+Font names used in official communications
+Must have
+☐ Minimum 5 general photos of the work *
+Training sessions, workshops, people, community — real images only
+Photo
+☐ Photo permissions confirmed *
+Written or verbal consent from all people featured in photos
+Must have
+☐ Privacy policy text *
+Required because the site collects form data — a generator is fine
+Written text
+☐ 404 error page message
+A friendly short message for when someone hits a broken link
+Written text
+
+-- 5 of 5 --
+
