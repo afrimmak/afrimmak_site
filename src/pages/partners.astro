@@ -149,4 +149,14 @@ const benefits = [
     .why-grid { grid-template-columns: 1fr; gap: 40px; }
     .partner-cta { grid-template-columns: 1fr; gap: 28px; }
   }
+  @media (max-width: 520px) {
+    /* Trim heavy desktop padding so content keeps room at 320-375px. */
+    .diaspora { padding: 24px; }
+    .partner-cta { padding: 28px 24px; }
+    .partner-cta__actions { align-items: stretch; }
+    .partner-cta__actions .btn { width: 100%; }
+  }
+  @media (max-width: 400px) {
+    .logos { grid-template-columns: repeat(2, 1fr); }
+  }
 </style>

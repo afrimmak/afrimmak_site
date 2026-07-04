@@ -3,16 +3,27 @@
 
 * { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; background: var(--paper); color: var(--ink-900); font-family: var(--font-body); -webkit-font-smoothing: antialiased; }
+/* Safety net against accidental horizontal scroll on small screens. Root
+   causes (forced heading breaks, long words) are fixed at source; this stops
+   any stray overflow from producing a sideways scrollbar. Nav is position:
+   fixed (not sticky), so this does not affect it. */
+html, body { overflow-x: hidden; }
+
+/* Anchor targets clear the fixed 76px nav when jumped to (e.g. /contact#donate). */
+:target { scroll-margin-top: 92px; }
 
 .afr-container { max-width: 1180px; margin: 0 auto; padding: 0 32px; }
 
 /* ---------- Buttons ---------- */
 .btn {
-  display: inline-flex; align-items: center; gap: 8px;
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
   font-family: var(--font-display); font-weight: 700;
   font-size: 14px; letter-spacing: 0.01em;
   border: none; border-radius: 999px;
   padding: 12px 22px; cursor: pointer;
+  /* 44px minimum tappable height on every button, incl. .btn-sm (Apple/Google
+     accessibility minimum). */
+  min-height: 44px;
   transition: all 180ms var(--ease-out);
   text-decoration: none;
 }
@@ -65,13 +76,18 @@ section.tight { padding: 64px 0; }
 /* ---------- Headings ---------- */
 .h-display {
   font-family: var(--font-display); font-weight: 900;
-  font-size: clamp(40px, 5.4vw, 68px);
+  /* Min lowered 40px -> 32px so large headlines don't overflow / clip at
+     320-375px (e.g. "competition." on the Competition h1). */
+  font-size: clamp(32px, 5.4vw, 68px);
   line-height: 1.04; letter-spacing: -0.02em;
+  overflow-wrap: break-word;
 }
 .h2 {
   font-family: var(--font-display); font-weight: 800;
   font-size: clamp(28px, 3.4vw, 44px);
   line-height: 1.1; letter-spacing: -0.02em;
+  /* Break very long words ("entrepreneurship") rather than overflow narrow cols. */
+  overflow-wrap: break-word;
 }
 .h3 {
   font-family: var(--font-display); font-weight: 800;
@@ -115,3 +131,15 @@ section.tight { padding: 64px 0; }
 /* ---------- Lucide ---------- */
 .icon { width: 20px; height: 20px; stroke-width: 1.75; }
 .icon-lg { width: 28px; height: 28px; stroke-width: 1.75; }
+
+/* ---------- Mobile rhythm ----------
+   Tighten vertical section padding and horizontal gutters on phones so
+   stacked sections don't waste huge amounts of scroll and body text keeps
+   comfortable edge padding at 320-375px. */
+@media (max-width: 640px) {
+  section { padding: 60px 0; }
+  section.tight { padding: 44px 0; }
+}
+@media (max-width: 520px) {
+  .afr-container { padding: 0 20px; }
+}

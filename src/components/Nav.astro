@@ -99,6 +99,11 @@ const links = [
     border: none;
     cursor: pointer;
     color: var(--ink-900);
+    /* 44x44 minimum tappable area for the hamburger. */
+    min-width: 44px;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
     padding: 8px;
   }
 
@@ -121,10 +126,20 @@ const links = [
       transition: all 200ms var(--ease-out);
     }
     .afr-nav__menu.is-open { transform: translateY(0); opacity: 1; pointer-events: auto; }
-    .afr-nav__links { flex-direction: column; gap: 4px; }
-    .afr-nav__link { padding: 10px 0; font-size: 16px; }
+    .afr-nav__links { flex-direction: column; gap: 2px; }
+    /* Generous thumb targets: full-width rows, >=44px tall, clear separation. */
+    .afr-nav__link {
+      display: flex;
+      align-items: center;
+      min-height: 48px;
+      padding: 12px 8px;
+      font-size: 16px;
+      border-radius: 10px;
+    }
+    .afr-nav__link:hover, .afr-nav__link:focus-visible { background: var(--blue-50); }
+    .afr-nav__link.is-active { background: var(--blue-50); }
     .afr-nav__link.is-active::after { display: none; }
-    .afr-nav__donate { justify-content: center; margin-top: 8px; }
+    .afr-nav__donate { justify-content: center; margin-top: 10px; }
   }
 </style>
 

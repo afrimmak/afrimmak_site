@@ -4,6 +4,10 @@
 ---
 
 <header class="hero">
+  {/* PENDING: when a real hero photograph replaces this placeholder, render it
+      with Astro's <Image /> component for responsive srcset + width/height (to
+      avoid layout shift and over-serving large images on slow mobile networks).
+      No real image exists yet, so this stays a CSS placeholder for now. */}
   <!-- Full-bleed photo placeholder — reads as "hero photograph goes here". -->
   <div class="hero__photo" aria-hidden="true">
     <div class="hero__photo-grid"></div>
@@ -28,8 +32,8 @@
       </div>
 
       <h1 class="h-display" style="margin: 0; color: var(--ink-900);">
-        Skills, mentorship,<br />
-        and a real shot —<br />
+        Skills, mentorship,<br class="hero__br" />
+        and a real shot —<br class="hero__br" />
         <span style="color: var(--afr-blue);">for young Gambians.</span>
       </h1>
 
@@ -151,5 +155,8 @@
     .hero { padding-top: 140px; padding-bottom: 80px; min-height: 0; }
     .hero__photo-brief { display: none; }
     .hero__capsule { padding: 28px 24px 32px; }
+    /* Drop the forced line breaks so the headline wraps naturally instead of
+       overflowing the capsule at 320-375px. */
+    .hero__br { display: none; }
   }
 </style>

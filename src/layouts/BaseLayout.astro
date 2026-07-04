@@ -44,6 +44,17 @@ const organizationSchema = {
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Fonts: preconnect warms up the TLS/DNS handshake before the stylesheet
+         request (matters on slow connections); &display=swap keeps text visible
+         while webfonts load. Kept out of tokens.css (@import is render-blocking). -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&family=Nunito:wght@400;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap"
+    />
+
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={Astro.url.href} />
@@ -115,9 +126,14 @@ const organizationSchema = {
         MessageCircle, Facebook, Instagram,
       } from 'lucide';
       createIcons({
+        // Must match the import list exactly. Previously referenced Wrench/Users
+        // (never imported -> ReferenceError that stopped ALL icons rendering)
+        // and omitted Compass/Network/Presentation/Trophy/Lightbulb (which the
+        // pages use). Keep this in sync with the imports above.
         icons: {
           ArrowRight, Menu, Mail, MapPin, Phone, Check,
-          Wrench, Rocket, Users, School, HandCoins, UsersRound, Building2,
+          Compass, Network, Presentation, Trophy, Lightbulb, Rocket,
+          School, HandCoins, UsersRound, Building2,
           MessageCircle, Facebook, Instagram,
         },
         attrs: { 'stroke-width': 1.75 },

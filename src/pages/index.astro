@@ -201,4 +201,8 @@ const benefits = [
   @media (max-width: 520px) {
     .steps-flow { grid-template-columns: 1fr; gap: 32px; }
   }
+  @media (max-width: 400px) {
+    /* 3 logo slots get cramped below ~360px; drop to 2 columns. */
+    .afr-logos { grid-template-columns: repeat(2, 1fr); }
+  }
 </style>

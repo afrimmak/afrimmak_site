@@ -107,13 +107,17 @@ const enquiries = [
     border: 1px solid var(--ink-200);
     border-radius: 10px;
     font-family: var(--font-body);
-    font-size: 14px;
+    /* 16px minimum: anything smaller makes iOS Safari auto-zoom on focus, which
+       is a jarring mobile bug. Do not drop this below 16px. */
+    font-size: 16px;
     color: var(--ink-900);
     background: var(--paper-warm);
     outline: none;
     transition: border-color 160ms var(--ease-out);
     resize: vertical;
   }
+  /* Comfortable one-handed textarea. */
+  .field textarea { min-height: 120px; line-height: 1.55; }
   .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--afr-blue); background: white; }
 
   .contact-side { display: flex; flex-direction: column; gap: 20px; }
@@ -134,5 +138,8 @@ const enquiries = [
   @media (max-width: 860px) {
     .contact-grid { grid-template-columns: 1fr; gap: 32px; }
     .form__row { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 520px) {
+    .contact-form { padding: 22px 20px; }
   }
 </style>
