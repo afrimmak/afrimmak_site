@@ -1,36 +1,30 @@
 ---
 // AFRIMMAK — Hero. Ported from ui_kits/website/Hero.jsx.
-// Paper-white hero: a full-bleed photo slot behind a solid copy capsule.
+// Paper-white hero: a full-bleed photo behind a solid copy capsule.
+import { Image } from 'astro:assets';
+import heroPhoto from '../assets/hero-students.jpg';
 ---
 
 <header class="hero">
-  {/* PENDING: when a real hero photograph replaces this placeholder, render it
-      with Astro's <Image /> component for responsive srcset + width/height (to
-      avoid layout shift and over-serving large images on slow mobile networks).
-      No real image exists yet, so this stays a CSS placeholder for now. */}
-  <!-- Full-bleed photo placeholder — reads as "hero photograph goes here". -->
-  <div class="hero__photo" aria-hidden="true">
-    <div class="hero__photo-grid"></div>
-    <div class="hero__photo-halo"></div>
-    <div class="hero__photo-pill">
-      <span></span> Needs: Photo — full-bleed hero
-    </div>
-    <p class="hero__photo-brief">
-      Warm-lit daylight photograph of young Gambians in a real Afrimmak setting —
-      classroom, workshop, or cohort group. Wide composition; subjects in the right
-      two-thirds so the copy capsule on the left stays legible.
-    </p>
+  <!-- Full-bleed hero photograph behind the copy capsule. Optimized responsive
+       variants (WebP srcset) are generated at build by Astro's <Image />. -->
+  <div class="hero__photo">
+    <Image
+      src={heroPhoto}
+      alt="Young students seated together in a hall during a schools event"
+      class="hero__photo-img"
+      widths={[480, 768, 1200, 1600, 2000, 2560]}
+      sizes="100vw"
+      quality={72}
+      format="webp"
+      loading="eager"
+      fetchpriority="high"
+    />
+    <div class="hero__photo-scrim" aria-hidden="true"></div>
   </div>
 
   <div class="afr-container hero__inner">
     <div class="hero__capsule">
-      <div class="hero__eyebrow-chip">
-        <span class="hero__dot"></span>
-        <span class="eyebrow" style="color: var(--ink-700);">
-          A project of the Mendez Impact Foundation · The Gambia
-        </span>
-      </div>
-
       <h1 class="h-display" style="margin: 0; color: var(--ink-900);">
         Skills, mentorship,<br class="hero__br" />
         and a real shot —<br class="hero__br" />
@@ -67,52 +61,25 @@
     position: absolute;
     inset: 24px;
     border-radius: 32px;
-    background: rgba(0, 72, 168, 0.05);
-    border: 2px dashed var(--blue-300);
+    background: var(--ink-100);
     overflow: hidden;
     pointer-events: none;
   }
-  .hero__photo-grid {
+  .hero__photo-img {
     position: absolute;
     inset: 0;
-    opacity: 0.6;
-    background-image: radial-gradient(rgba(0, 72, 168, 0.1) 1.2px, transparent 1.2px);
-    background-size: 28px 28px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
   }
-  .hero__photo-halo {
+  /* Soft navy scrim: grounds the busy photo and lifts the capsule off it. */
+  .hero__photo-scrim {
     position: absolute;
-    bottom: -160px; right: -160px;
-    width: 520px; height: 520px;
-    border-radius: 50%;
-    background: radial-gradient(closest-side, rgba(111, 197, 46, 0.22), transparent 70%);
-  }
-  .hero__photo-pill {
-    position: absolute;
-    top: 24px; right: 24px;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: var(--afr-red);
-    color: white;
-    padding: 5px 12px;
-    border-radius: 999px;
-    font-family: var(--font-display);
-    font-weight: 800;
-    font-size: 10px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    box-shadow: 0 8px 20px rgba(238, 42, 48, 0.35);
-  }
-  .hero__photo-pill span { width: 6px; height: 6px; border-radius: 3px; background: white; }
-  .hero__photo-brief {
-    position: absolute;
-    bottom: 28px; right: 32px;
-    max-width: 320px;
-    text-align: right;
-    font-family: var(--font-body);
-    font-size: 12px;
-    line-height: 1.55;
-    color: var(--ink-500);
+    inset: 0;
+    background:
+      linear-gradient(90deg, rgba(10, 26, 51, 0.28) 0%, rgba(10, 26, 51, 0.05) 45%, transparent 70%),
+      linear-gradient(0deg, rgba(10, 26, 51, 0.18), transparent 40%);
   }
 
   .hero__inner {
@@ -127,22 +94,6 @@
     padding: 40px 44px 44px;
     box-shadow: 0 24px 64px rgba(10, 26, 51, 0.1);
   }
-  .hero__eyebrow-chip {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: var(--paper-warm);
-    border: 1px solid var(--ink-100);
-    border-radius: 999px;
-    padding: 6px 14px;
-    margin-bottom: 24px;
-  }
-  .hero__dot {
-    width: 8px; height: 8px;
-    border-radius: 4px;
-    background: var(--afr-red);
-    box-shadow: 0 0 0 4px rgba(238, 42, 48, 0.18);
-  }
   .hero__ctas {
     display: flex;
     gap: 12px;
@@ -153,7 +104,6 @@
 
   @media (max-width: 720px) {
     .hero { padding-top: 140px; padding-bottom: 80px; min-height: 0; }
-    .hero__photo-brief { display: none; }
     .hero__capsule { padding: 28px 24px 32px; }
     /* Drop the forced line breaks so the headline wraps naturally instead of
        overflowing the capsule at 320-375px. */
