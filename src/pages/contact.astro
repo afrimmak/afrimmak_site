@@ -29,31 +29,70 @@ const enquiries = [
     <div class="afr-container contact-grid">
       <!-- Form -->
       <div class="card contact-form">
-        <h2 class="h3" style="font-size: 22px; margin: 0 0 4px;">Send us a message</h2>
-        <p style="margin: 0 0 24px; color: var(--ink-500); font-size: 14px;">We read every message and respond within two working days.</p>
-        <form class="form" onsubmit="event.preventDefault(); this.querySelector('.form__note').textContent = 'Form is UI-only for now — wire to a backend before launch.';">
-          <div class="form__row">
-            <label class="field"><span>First name</span><input type="text" placeholder="Your first name" /></label>
-            <label class="field"><span>Last name</span><input type="text" placeholder="Your last name" /></label>
-          </div>
-          <label class="field"><span>Email address</span><input type="email" placeholder="you@example.com" /></label>
-          <label class="field"><span>WhatsApp / phone (optional)</span><input type="tel" placeholder="+220 …" /></label>
-          <label class="field"><span>What's this about?</span>
-            <select>
-              <option value="" disabled selected>Choose a topic</option>
-              <option>The competition</option>
-              <option>Becoming a partner</option>
-              <option>Funding or donations</option>
-              <option>Mentorship (I want to mentor)</option>
-              <option>Media or press</option>
-              <option>Volunteering</option>
-              <option>Something else</option>
-            </select>
-          </label>
-          <label class="field"><span>Message</span><textarea rows="5" placeholder="Tell us what's on your mind."></textarea></label>
-          <button type="submit" class="btn btn-primary btn-lg" style="width: 100%; justify-content: center;">Send message</button>
-          <p class="form__note" style="text-align: center; font-size: 12px; color: var(--ink-500); margin: 4px 0 0;">Your message goes to the Afrimmak team. We don't share your details.</p>
-        </form>
+        <div id="cf-form-wrap">
+          <h2 class="h3" style="font-size: 22px; margin: 0 0 4px;">Send us a message</h2>
+          <p style="margin: 0 0 24px; color: var(--ink-500); font-size: 14px;">We read every message and respond within two working days.</p>
+          <form class="form" id="contact-form" novalidate>
+            <div class="form__row">
+              <label class="field">
+                <span>First name</span>
+                <input type="text" name="firstName" id="cf-first" autocomplete="given-name" placeholder="Your first name" aria-describedby="err-first" />
+                <small class="field__error" id="err-first" data-error-for="cf-first"></small>
+              </label>
+              <label class="field">
+                <span>Last name</span>
+                <input type="text" name="lastName" id="cf-last" autocomplete="family-name" placeholder="Your last name" aria-describedby="err-last" />
+                <small class="field__error" id="err-last" data-error-for="cf-last"></small>
+              </label>
+            </div>
+            <label class="field">
+              <span>Email address</span>
+              <input type="email" name="email" id="cf-email" autocomplete="email" placeholder="you@example.com" aria-describedby="err-email" />
+              <small class="field__error" id="err-email" data-error-for="cf-email"></small>
+            </label>
+            <label class="field">
+              <span>WhatsApp / phone (optional)</span>
+              <input type="tel" name="phone" id="cf-phone" autocomplete="tel" placeholder="+220 …" />
+            </label>
+            <label class="field">
+              <span>What's this about?</span>
+              <select name="topic" id="cf-topic" aria-describedby="err-topic">
+                <option value="" disabled selected>Choose a topic</option>
+                <option>The competition</option>
+                <option>Becoming a partner</option>
+                <option>Funding or donations</option>
+                <option>Mentorship (I want to mentor)</option>
+                <option>Media or press</option>
+                <option>Volunteering</option>
+                <option>Something else</option>
+              </select>
+              <small class="field__error" id="err-topic" data-error-for="cf-topic"></small>
+            </label>
+            <label class="field">
+              <span>Message</span>
+              <textarea name="message" id="cf-message" rows="5" placeholder="Tell us what's on your mind." aria-describedby="err-message"></textarea>
+              <small class="field__error" id="err-message" data-error-for="cf-message"></small>
+            </label>
+
+            <!-- Honeypot: positioned off-screen (NOT display:none), unlabelled and
+                 hidden from assistive tech. A bot that autofills "website" is
+                 silently dropped (fake success, nothing sent). -->
+            <div class="hp-field" aria-hidden="true">
+              <input type="text" name="website" id="cf-website" tabindex="-1" autocomplete="off" />
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-lg form__submit" style="width: 100%; justify-content: center;">Send message</button>
+            <p class="form__note" style="text-align: center; font-size: 12px; color: var(--ink-500); margin: 4px 0 0;">Your message goes to the Afrimmak team. We don't share your details.</p>
+            <p class="form__error-banner" id="cf-error" role="alert" hidden></p>
+          </form>
+        </div>
+
+        <!-- Success state — shown in place of the form after a successful submit -->
+        <div class="form-success" id="cf-success" role="status" hidden>
+          <div class="form-success__icon"><i data-lucide="check"></i></div>
+          <h2 class="h3" style="font-size: 22px; margin: 0 0 8px;">Thanks — message received.</h2>
+          <p style="margin: 0; color: var(--ink-700);">We've received your message and will reply within 2 working days.</p>
+        </div>
       </div>
 
       <!-- Sidebar -->
@@ -90,6 +129,109 @@ const enquiries = [
       </div>
     </div>
   </section>
+
+  <script>
+    // ============================================================
+    //  ⚠️  CONTACT FORM ENDPOINT — REPLACE THIS PLACEHOLDER URL  ⚠️
+    //  Paste your deployed Google Apps Script Web App URL below.
+    //  This is the ONLY place the endpoint is defined.
+    // ============================================================
+    const FORM_ENDPOINT = "https://script.google.com/macros/s/AKfycbzScqW03Urp00feubzGcDXzjuEVUDPB_QrIvS6o5kre7448qME8NLWRpz6qTBWEkoWC/exec"; // <-- PLACEHOLDER: replace with the real URL
+
+    const form = document.getElementById('contact-form');
+    if (form) {
+      const wrap = document.getElementById('cf-form-wrap');
+      const success = document.getElementById('cf-success');
+      const banner = document.getElementById('cf-error');
+      const submitBtn = form.querySelector('.form__submit');
+      const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      // Required fields -> [id, message shown when empty]. Phone is optional.
+      const required = [
+        ['cf-first', 'Please enter your first name.'],
+        ['cf-last', 'Please enter your last name.'],
+        ['cf-email', 'Please enter your email address.'],
+        ['cf-topic', 'Please choose a topic.'],
+        ['cf-message', 'Please write a short message.'],
+      ];
+
+      const getVal = (id) => {
+        const e = document.getElementById(id);
+        return e ? String(e.value || '').trim() : '';
+      };
+      const setError = (id, msg) => {
+        const input = document.getElementById(id);
+        const err = form.querySelector('[data-error-for="' + id + '"]');
+        if (err) err.textContent = msg || '';
+        if (input) {
+          input.classList.toggle('is-invalid', !!msg);
+          if (msg) input.setAttribute('aria-invalid', 'true');
+          else input.removeAttribute('aria-invalid');
+        }
+      };
+
+      const validate = () => {
+        let firstInvalid = '';
+        required.forEach(([id, msg]) => {
+          if (!getVal(id)) { setError(id, msg); if (!firstInvalid) firstInvalid = id; }
+          else setError(id, '');
+        });
+        const email = getVal('cf-email');
+        if (email && !EMAIL_RE.test(email)) {
+          setError('cf-email', 'Please enter a valid email address.');
+          if (!firstInvalid) firstInvalid = 'cf-email';
+        }
+        if (firstInvalid) { const el = document.getElementById(firstInvalid); if (el) el.focus(); }
+        return !firstInvalid;
+      };
+
+      const showSuccess = () => {
+        if (wrap) wrap.hidden = true;
+        if (success) { success.hidden = false; success.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+        form.reset();
+      };
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        if (banner) banner.hidden = true;
+
+        // Honeypot: a filled "website" field means a bot. Fake success, send nothing.
+        if (getVal('cf-website') !== '') { showSuccess(); return; }
+
+        if (!validate()) return;
+
+        const payload = {
+          firstName: getVal('cf-first'),
+          lastName: getVal('cf-last'),
+          email: getVal('cf-email'),
+          phone: getVal('cf-phone'),
+          topic: getVal('cf-topic'),
+          message: getVal('cf-message'),
+        };
+
+        const label = submitBtn ? submitBtn.textContent : '';
+        if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Sending…'; }
+
+        try {
+          await fetch(FORM_ENDPOINT, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+            body: JSON.stringify(payload),
+          });
+          // no-cors -> the response is opaque and cannot be read. If fetch did not
+          // throw, treat the submission as sent (a real limitation of this approach).
+          showSuccess();
+        } catch (err) {
+          if (banner) {
+            banner.innerHTML = 'Something went wrong. Please email us directly at <a href="mailto:info@afrimmak.org">info@afrimmak.org</a>.';
+            banner.hidden = false;
+          }
+          if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = label; }
+        }
+      });
+    }
+  </script>
 </BaseLayout>
 
 <style>
@@ -118,6 +260,52 @@ const enquiries = [
   }
   /* Comfortable one-handed textarea. */
   .field textarea { min-height: 120px; line-height: 1.55; }
+
+  /* Inline validation */
+  .field__error {
+    display: block;
+    margin-top: 5px;
+    font-family: var(--font-body);
+    font-size: 12px;
+    color: var(--afr-red);
+  }
+  .field__error:empty { display: none; }
+  .field input.is-invalid, .field select.is-invalid, .field textarea.is-invalid {
+    border-color: var(--afr-red);
+    background: var(--red-50);
+  }
+
+  /* Honeypot — off-screen, never shown to humans (deliberately NOT display:none). */
+  .hp-field {
+    position: absolute;
+    left: -9999px;
+    width: 1px; height: 1px;
+    overflow: hidden;
+  }
+
+  /* Network / server failure banner */
+  .form__error-banner {
+    margin: 4px 0 0;
+    padding: 12px 14px;
+    border-radius: 10px;
+    background: var(--red-50);
+    border: 1px solid var(--red-100);
+    color: var(--red-700);
+    font-family: var(--font-body);
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .form__error-banner a { color: var(--red-700); font-weight: 600; }
+
+  /* Success state */
+  .form-success { text-align: center; padding: 24px 8px; }
+  .form-success__icon {
+    width: 56px; height: 56px; border-radius: 999px;
+    background: var(--green-50); color: var(--green-600);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 16px;
+  }
+  .form-success__icon :global(svg) { width: 30px; height: 30px; stroke-width: 2; }
   .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--afr-blue); background: white; }
 
   .contact-side { display: flex; flex-direction: column; gap: 20px; }
