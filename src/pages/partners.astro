@@ -53,18 +53,45 @@ const benefits = [
     </div>
   </section>
 
-  <!-- Logo grid -->
+  <!-- Partner network: one confirmed partner + an open invitation -->
   <section class="tight" style="background: var(--paper-warm);">
     <div class="afr-container">
-      <div class="eyebrow" style="text-align: center;">Current &amp; incoming partners</div>
-      <div class="logos">
-        {Array.from({ length: 12 }).map((_, i) => (
-          <div class="logo-slot">Partner {i + 1}</div>
-        ))}
+      <div style="text-align: center; margin-bottom: 40px;">
+        <div class="eyebrow">Our partner network</div>
+        <h2 class="h2" style="margin: 8px 0 0;">Building our partner network.</h2>
       </div>
-      <p style="text-align: center; margin-top: 20px; color: var(--ink-500); font-size: 14px;">
-        We're building this network now. Your logo belongs here.
-      </p>
+
+      <div class="network">
+        <!-- Featured partner -->
+        <div class="card featured-partner">
+          <div class="featured-partner__logo">
+            <img
+              src="/assets/partners/startup-incubator-logo.png"
+              alt="Startup Incubator"
+              width="263"
+              height="281"
+            />
+          </div>
+          <div class="featured-partner__body">
+            <span class="badge badge-green">Founding partner</span>
+            <h3 class="h3" style="font-size: 22px; margin: 12px 0 8px;">Startup Incubator</h3>
+            <p style="margin: 0; color: var(--ink-700);">
+              Our founding partner, supporting young innovators from idea to launch.
+            </p>
+          </div>
+        </div>
+
+        <!-- Open invitation -->
+        <div class="card invite">
+          <div class="invite__icon"><i data-lucide="handshake"></i></div>
+          <h3 class="h3" style="font-size: 22px; margin: 16px 0 8px;">Your organisation could be here next.</h3>
+          <p style="margin: 0 0 24px; color: var(--ink-700);">
+            We're building this network now. Partner with us to back young Gambian
+            innovators — through training, funding, mentorship, or real opportunities.
+          </p>
+          <a href="/contact" class="btn btn-primary invite__cta">Become a partner <i data-lucide="arrow-right"></i></a>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -131,8 +158,31 @@ const benefits = [
   .type__icon { width: 52px; height: 52px; border-radius: 14px; display: flex; align-items: center; justify-content: center; }
   .type__icon :global(svg) { width: 26px; height: 26px; }
 
-  .logos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; margin-top: 40px; }
-  .logo-slot { aspect-ratio: 3/2; background: white; border: 1px solid var(--ink-100); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--ink-300); font-size: 12px; font-family: var(--font-mono); }
+  /* Partner network — one featured partner + an invitation, side by side.
+     Featured card gets slightly more width for visual weight. */
+  .network { display: grid; grid-template-columns: 1.15fr 1fr; gap: 24px; align-items: stretch; }
+
+  .featured-partner { display: flex; gap: 28px; align-items: center; padding: 32px; }
+  .featured-partner__logo {
+    flex: 0 0 auto;
+    width: 132px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .featured-partner__logo img {
+    display: block; width: 100%; height: auto;
+    max-height: 152px; object-fit: contain;
+  }
+  .featured-partner__body { min-width: 0; }
+
+  .invite { display: flex; flex-direction: column; align-items: flex-start; padding: 32px; }
+  /* Match the icon-in-soft-circle treatment used by the partner-type cards above. */
+  .invite__icon {
+    width: 52px; height: 52px; border-radius: 999px;
+    background: var(--green-50); color: var(--green-600);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .invite__icon :global(svg) { width: 26px; height: 26px; }
+  .invite__cta { margin-top: auto; }
 
   .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
   .benefits { display: flex; flex-direction: column; gap: 20px; }
@@ -145,7 +195,8 @@ const benefits = [
 
   @media (max-width: 860px) {
     .types-grid { grid-template-columns: repeat(2, 1fr); }
-    .logos { grid-template-columns: repeat(3, 1fr); }
+    /* Featured partner first, invitation below. */
+    .network { grid-template-columns: 1fr; }
     .why-grid { grid-template-columns: 1fr; gap: 40px; }
     .partner-cta { grid-template-columns: 1fr; gap: 28px; }
   }
@@ -155,8 +206,9 @@ const benefits = [
     .partner-cta { padding: 28px 24px; }
     .partner-cta__actions { align-items: stretch; }
     .partner-cta__actions .btn { width: 100%; }
-  }
-  @media (max-width: 400px) {
-    .logos { grid-template-columns: repeat(2, 1fr); }
+    .featured-partner, .invite { padding: 24px; }
+    /* Stack the logo above the text so neither gets squeezed. */
+    .featured-partner { flex-direction: column; text-align: center; align-items: center; gap: 18px; }
+    .invite__cta { width: 100%; }
   }
 </style>

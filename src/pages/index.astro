@@ -59,7 +59,7 @@ const benefits = [
         <h2 class="h2" style="margin: 8px 0 16px;">One competition. Africa's next innovators.</h2>
         <p class="lede" style="margin: 0 0 16px; max-width: 520px;">
           AFRIMMAK empowers young Africans through an entrepreneurship and
-          innovation competition — a single platform where students and young
+          innovation competitions — a single platform where students and young
           entrepreneurs showcase their ideas and compete for the support to
           build them into sustainable ventures that solve real African problems.
         </p>
@@ -93,10 +93,22 @@ const benefits = [
         </p>
         <a href="/partners" class="btn btn-primary">Partner with us <i data-lucide="arrow-right"></i></a>
       </div>
-      <div class="afr-logos">
-        {Array.from({ length: 6 }).map((_, i) => (
-          <div class="afr-logo-slot">Partner {i + 1}</div>
-        ))}
+      <div class="card home-partner">
+        <div class="home-partner__logo">
+          <img
+            src="/assets/partners/startup-incubator-logo.png"
+            alt="Startup Incubator"
+            width="263"
+            height="281"
+          />
+        </div>
+        <div class="home-partner__body">
+          <span class="badge badge-green">Founding partner</span>
+          <h3 class="h3" style="font-size: 20px; margin: 10px 0 6px;">Startup Incubator</h3>
+          <p style="margin: 0; font-size: 14px; color: var(--ink-700);">
+            Our founding partner, supporting young innovators from idea to launch.
+          </p>
+        </div>
       </div>
     </div>
   </section>
@@ -180,17 +192,18 @@ const benefits = [
     gap: 64px;
     align-items: center;
   }
-  .afr-logos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-  .afr-logo-slot {
-    height: 72px;
-    background: white;
-    border: 1px solid var(--ink-100);
-    border-radius: 12px;
+  /* Featured founding partner (replaces the old placeholder logo grid). */
+  .home-partner { display: flex; gap: 24px; align-items: center; padding: 28px; }
+  .home-partner__logo {
+    flex: 0 0 auto;
+    width: 116px;
     display: flex; align-items: center; justify-content: center;
-    color: var(--ink-300);
-    font-size: 13px;
-    font-family: var(--font-mono);
   }
+  .home-partner__logo img {
+    display: block; width: 100%; height: auto;
+    max-height: 132px; object-fit: contain;
+  }
+  .home-partner__body { min-width: 0; }
 
   @media (max-width: 860px) {
     .steps-flow { grid-template-columns: repeat(2, 1fr); gap: 36px 28px; }
@@ -200,9 +213,7 @@ const benefits = [
   }
   @media (max-width: 520px) {
     .steps-flow { grid-template-columns: 1fr; gap: 32px; }
-  }
-  @media (max-width: 400px) {
-    /* 3 logo slots get cramped below ~360px; drop to 2 columns. */
-    .afr-logos { grid-template-columns: repeat(2, 1fr); }
+    /* Stack the featured partner's logo above its text so neither is squeezed. */
+    .home-partner { flex-direction: column; text-align: center; align-items: center; gap: 16px; padding: 24px; }
   }
 </style>
