@@ -72,17 +72,21 @@ const organizationSchema = {
     <link rel="manifest" href="/site.webmanifest" />
     <meta name="theme-color" content="#0048A8" />
 
-    <!-- Open Graph -->
+    <!-- Open Graph. One shared 1200x630 share image site-wide (intentional).
+         Absolute URL built from Astro.site so it stays correct if the domain changes. -->
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={Astro.url.href} />
+    <meta property="og:image" content={new URL('/og-image.png', Astro.site)} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
 
-    <!-- Twitter — og:image / twitter:image intentionally omitted until a real
-         share image exists (follow-up task). -->
+    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={new URL('/og-image.png', Astro.site)} />
 
     <!-- Organization structured data -->
     <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
