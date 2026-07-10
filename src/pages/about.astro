@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { Image } from 'astro:assets';
 import problemPhoto from '../assets/about-problem.jpg';
+import storyPhoto from '../assets/about-story.jpg';
 
 const values = [
   { n: '01', title: 'Integrity', body: 'We say what we do and we do what we say. No inflated numbers, no fake testimonials.' },
@@ -14,13 +15,13 @@ const values = [
 // fabricated names. Founder/President (Ida Mendy) lives in the Founder
 // section above and is not repeated here.
 const team = [
-  { role: 'Executive Director', img: '/assets/team/executive-director.jpg', summary: 'Oversees day-to-day management of Afrimmak.' },
-  { role: 'Finance Officer', img: '/assets/team/finance-director.jpg', summary: "Manages Afrimmak's budgeting, funds, and financial reporting." },
-  { role: 'Program Officer', img: '/assets/team/program-officer.jpg', summary: 'Leads planning and implementation of all Afrimmak programs.' },
-  { role: 'Graphic Designer', img: '/assets/team/graphic-designer.jpg', summary: "Creates Afrimmak's visual identity, brand, and design materials." },
-  { role: 'Communication Officer', summary: 'Responsible for all official Afrimmak communications.' },
-  { role: 'Tech Officer', img: '/assets/team/tech-officer.jpg', summary: "Manages Afrimmak's digital systems and technical infrastructure." },
-  { role: 'Assistant Tech Officer', img: '/assets/team/assistant-tech-officer.jpg', summary: 'Supports technical operations and data management.' },
+  { role: 'Executive Director', name: 'Abdou S. Hydara', img: '/assets/team/executive-director.jpg', summary: 'Oversees day-to-day management of Afrimmak.' },
+  { role: 'Finance Officer', name: 'Haddy L. Mboob', img: '/assets/team/finance-director.jpg', summary: "Manages Afrimmak's budgeting, funds, and financial reporting." },
+  { role: 'Program Officer', name: 'Momodou L. R. Mendy', img: '/assets/team/program-officer.jpg', summary: 'Leads planning and implementation of all Afrimmak programs.' },
+  { role: 'Graphic Designer', name: 'Oleymatou Jadama', img: '/assets/team/graphic-designer.jpg', summary: "Creates Afrimmak's visual identity, brand, and design materials." },
+  { role: 'Communication Officer', name: 'Saikou Jaiteh', img: '/assets/team/communication-officer.jpg', summary: 'Responsible for all official Afrimmak communications.' },
+  { role: 'Tech Officer', name: 'Ahmed T. Drammeh', img: '/assets/team/tech-officer.jpg', summary: "Manages Afrimmak's digital systems and technical infrastructure." },
+  { role: 'Assistant Tech Officer', name: 'Mbinkey', img: '/assets/team/assistant-tech-officer.jpg', summary: 'Supports technical operations and data management.' },
 ];
 ---
 
@@ -99,7 +100,19 @@ const team = [
   <!-- Our Story -->
   <section class="tight">
     <div class="afr-container story story--reverse" data-stagger>
-      <div class="photo story__photo reveal">Needs: photo — founding moment / gathering</div>
+      <div class="story__photo story__photo--img reveal">
+        <Image
+          src={storyPhoto}
+          alt="Afrimmak team members meeting young people in the community"
+          class="story__photo-img"
+          widths={[480, 760, 1000, 1280]}
+          sizes="(max-width: 860px) 100vw, 45vw"
+          quality={72}
+          format="webp"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
       <div class="reveal">
         <div class="eyebrow">Our story</div>
         <h2 class="h2" style="margin: 8px 0 16px;">How we started.</h2>
@@ -180,7 +193,7 @@ const team = [
             ) : (
               <div class="photo team-card__photo">Needs: portrait</div>
             )}
-            <div class="team-card__name">[Name]</div>
+            <div class:list={['team-card__name', { 'team-card__name--tbd': !m.name }]}>{m.name ?? '[Name]'}</div>
             <div class="team-card__role">{m.role}</div>
             <p class="team-card__summary">{m.summary}</p>
           </div>
@@ -250,10 +263,12 @@ const team = [
     box-shadow: var(--shadow-md, 0 12px 32px rgba(10, 26, 51, 0.12));
   }
 
-  /* Team / org structure — one flat grid, two rows of four. */
-  .team-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  /* Team / org structure. Flexbox (not grid) so an incomplete final row
+     centres instead of left-aligning. flex-grow:0 keeps last-row cards at
+     their 1/4 width rather than stretching to fill. */
+  .team-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
 
-  .team-card { padding: 16px; text-align: center; }
+  .team-card { flex: 0 1 calc(25% - 15px); padding: 16px; text-align: center; }
   /* Identical box for BOTH states (gradient placeholder AND real photo).
      Height is driven ONLY by aspect-ratio + width — never by any image's
      intrinsic size — so every card in the grid is exactly the same height. */
@@ -280,8 +295,10 @@ const team = [
     font-family: var(--font-display);
     font-weight: 800;
     font-size: 15px;
-    color: var(--ink-300);
+    color: var(--ink-900);
   }
+  /* Muted only when the name is still a placeholder. */
+  .team-card__name--tbd { color: var(--ink-300); }
   .team-card__role {
     font-family: var(--font-display);
     font-weight: 700;
@@ -308,7 +325,7 @@ const team = [
     .story--reverse .photo { order: -1; }
     .values-grid { grid-template-columns: repeat(2, 1fr); }
     .founder { grid-template-columns: 1fr; gap: 32px; }
-    .team-row { grid-template-columns: repeat(2, 1fr); }
+    .team-card { flex-basis: calc(50% - 10px); }
   }
   @media (max-width: 560px) {
     .values-grid { grid-template-columns: 1fr; }
