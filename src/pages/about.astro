@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+import problemPhoto from '../assets/about-problem.jpg';
 
 const values = [
   { n: '01', title: 'Integrity', body: 'We say what we do and we do what we say. No inflated numbers, no fake testimonials.' },
@@ -12,14 +14,13 @@ const values = [
 // fabricated names. Founder/President (Ida Mendy) lives in the Founder
 // section above and is not repeated here.
 const team = [
-  { role: 'Executive Director', summary: 'Oversees day-to-day management of Afrimmak.' },
-  { role: 'Deputy Executive Director', summary: 'Coordinates all departments and follows up on implementation.' },
-  { role: 'Program Officer', summary: 'Leads planning and implementation of all Afrimmak programs.' },
-  { role: 'Assistant Program Officer', summary: 'Supports program implementation and volunteer coordination.' },
+  { role: 'Executive Director', img: '/assets/team/executive-director.jpg', summary: 'Oversees day-to-day management of Afrimmak.' },
+  { role: 'Finance Officer', img: '/assets/team/finance-director.jpg', summary: "Manages Afrimmak's budgeting, funds, and financial reporting." },
+  { role: 'Program Officer', img: '/assets/team/program-officer.jpg', summary: 'Leads planning and implementation of all Afrimmak programs.' },
+  { role: 'Graphic Designer', img: '/assets/team/graphic-designer.jpg', summary: "Creates Afrimmak's visual identity, brand, and design materials." },
   { role: 'Communication Officer', summary: 'Responsible for all official Afrimmak communications.' },
-  { role: 'Assistant Communication Officer', summary: 'Manages social media and content.' },
-  { role: 'Tech Officer', summary: "Manages Afrimmak's digital systems and technical infrastructure." },
-  { role: 'Assistant Tech Officer', summary: 'Supports technical operations and data management.' },
+  { role: 'Tech Officer', img: '/assets/team/tech-officer.jpg', summary: "Manages Afrimmak's digital systems and technical infrastructure." },
+  { role: 'Assistant Tech Officer', img: '/assets/team/assistant-tech-officer.jpg', summary: 'Supports technical operations and data management.' },
 ];
 ---
 
@@ -42,8 +43,8 @@ const team = [
 
   <!-- Mission / Vision -->
   <section class="tight">
-    <div class="afr-container mv-grid">
-      <div class="card mv" style="border-top: 4px solid var(--afr-blue);">
+    <div class="afr-container mv-grid" data-stagger>
+      <div class="card mv reveal" style="border-top: 4px solid var(--afr-blue);">
         <div class="eyebrow">Mission</div>
         <p style="font-size: 18px; line-height: 1.6; color: var(--ink-800); margin: 12px 0 0;">
           Equip young Gambians with practical skills, mentorship, and real pathways to
@@ -51,7 +52,7 @@ const team = [
           grounded, and honest about what it delivers.
         </p>
       </div>
-      <div class="card mv" style="border-top: 4px solid var(--afr-green);">
+      <div class="card mv reveal" style="border-top: 4px solid var(--afr-green);">
         <div class="eyebrow" style="color: var(--green-700);">Vision</div>
         <p style="font-size: 18px; line-height: 1.6; color: var(--ink-800); margin: 12px 0 0;">
           A Gambia where young people have the skills, the support, and the confidence
@@ -64,8 +65,8 @@ const team = [
 
   <!-- The Problem -->
   <section class="tight" style="background: var(--paper-warm);">
-    <div class="afr-container story">
-      <div>
+    <div class="afr-container story" data-stagger>
+      <div class="reveal">
         <div class="eyebrow" style="color: var(--afr-red);">The problem</div>
         <h2 class="h2" style="margin: 8px 0 16px;">What we're up against.</h2>
         <p class="lede" style="margin: 0 0 16px;">
@@ -79,15 +80,27 @@ const team = [
           close that gap — one cohort at a time.
         </p>
       </div>
-      <div class="photo story__photo">Needs: photo — real Gambian context</div>
+      <div class="story__photo story__photo--img reveal">
+        <Image
+          src={problemPhoto}
+          alt="A crowded classroom of secondary-school students listening intently"
+          class="story__photo-img"
+          widths={[480, 760, 1000, 1400]}
+          sizes="(max-width: 860px) 100vw, 45vw"
+          quality={72}
+          format="webp"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
     </div>
   </section>
 
   <!-- Our Story -->
   <section class="tight">
-    <div class="afr-container story story--reverse">
-      <div class="photo story__photo">Needs: photo — founding moment / gathering</div>
-      <div>
+    <div class="afr-container story story--reverse" data-stagger>
+      <div class="photo story__photo reveal">Needs: photo — founding moment / gathering</div>
+      <div class="reveal">
         <div class="eyebrow">Our story</div>
         <h2 class="h2" style="margin: 8px 0 16px;">How we started.</h2>
         <p class="lede" style="margin: 0 0 16px;">
@@ -107,13 +120,13 @@ const team = [
   <!-- Values -->
   <section class="tight" style="background: var(--paper-warm);">
     <div class="afr-container">
-      <div style="text-align: center; margin-bottom: 48px;">
+      <div class="reveal" style="text-align: center; margin-bottom: 48px;">
         <div class="eyebrow">Values</div>
         <h2 class="h2" style="margin: 8px 0 0;">What we hold to.</h2>
       </div>
-      <div class="values-grid">
+      <div class="values-grid" data-stagger>
         {values.map((v) => (
-          <div class="card value">
+          <div class="card value reveal">
             <div class="value__n">{v.n}</div>
             <h3 class="h3" style="font-size: 18px; margin: 14px 0 6px;">{v.title}</h3>
             <p style="margin: 0; font-size: 14px; color: var(--ink-700);">{v.body}</p>
@@ -125,13 +138,13 @@ const team = [
 
   <!-- Founder -->
   <section class="tight">
-    <div class="afr-container founder">
+    <div class="afr-container founder" data-stagger>
       {/* PENDING: this real photo would benefit from Astro's <Image /> component
           for responsive srcset (serve a smaller file to phones on slow networks).
           Left as a plain <img> with intrinsic width/height for now (prevents CLS);
           migrate to <Image /> when doing the image-optimization pass. */}
-      <img src="/assets/founder-ida-mendy.jpg" alt="Ida Mendy, Founder &amp; President of the Mendez Impact Foundation" class="founder__photo" width="702" height="1080" />
-      <div>
+      <img src="/assets/founder-ida-mendy.jpg" alt="Ida Mendy, Founder &amp; President of the Mendez Impact Foundation" class="founder__photo reveal" width="702" height="1080" />
+      <div class="reveal">
         <div class="eyebrow">Founder</div>
         <h2 class="h2" style="margin: 8px 0 4px;">Ida Mendy</h2>
         <div style="font-family: var(--font-display); font-weight: 700; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--afr-blue); margin-bottom: 20px;">
@@ -152,15 +165,21 @@ const team = [
   <!-- Team / org structure -->
   <section class="tight" style="background: var(--paper-warm);">
     <div class="afr-container">
-      <div style="text-align: center; margin-bottom: 48px;">
+      <div class="reveal" style="text-align: center; margin-bottom: 48px;">
         <div class="eyebrow">Team</div>
         <h2 class="h2" style="margin: 8px 0 0;">The people behind Afrimmak.</h2>
       </div>
 
-      <div class="team-row">
+      <div class="team-row" data-stagger>
         {team.map((m) => (
-          <div class="card team-card">
-            <div class="photo team-card__photo">Needs: portrait</div>
+          <div class="card team-card reveal">
+            {m.img ? (
+              <div class="team-card__photo">
+                <img src={m.img} alt={m.role} class="team-card__photo-img" width="560" height="840" loading="lazy" decoding="async" />
+              </div>
+            ) : (
+              <div class="photo team-card__photo">Needs: portrait</div>
+            )}
             <div class="team-card__name">[Name]</div>
             <div class="team-card__role">{m.role}</div>
             <p class="team-card__summary">{m.summary}</p>
@@ -176,7 +195,7 @@ const team = [
 
   <!-- MIF strip -->
   <section class="tight" style="background: var(--ink-900); color: white; text-align: center;">
-    <div class="afr-container" style="max-width: 720px;">
+    <div class="afr-container reveal" style="max-width: 720px;">
       <div class="eyebrow on-dark">Our umbrella</div>
       <h2 class="h3" style="color: white; margin: 8px 0 12px;">A project of the Mendez Impact Foundation</h2>
       <p style="color: rgba(255,255,255,0.7); margin: 0;">
@@ -197,6 +216,24 @@ const team = [
 
   .story { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
   .story__photo { min-height: 280px; }
+  /* Real photo variant: landscape slot, filled edge-to-edge, rounded like the
+     gradient placeholder (.photo uses 24px). */
+  .story__photo--img {
+    position: relative;
+    aspect-ratio: 3 / 2;
+    min-height: 0;
+    border-radius: 24px;
+    overflow: hidden;
+  }
+  .story__photo-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
 
   .values-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
   .value__n { font-family: var(--font-display); font-weight: 900; font-size: 32px; color: var(--afr-blue); }
@@ -217,11 +254,27 @@ const team = [
   .team-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
 
   .team-card { padding: 16px; text-align: center; }
+  /* Identical box for BOTH states (gradient placeholder AND real photo).
+     Height is driven ONLY by aspect-ratio + width — never by any image's
+     intrinsic size — so every card in the grid is exactly the same height. */
   .team-card__photo {
+    position: relative;
     aspect-ratio: 4 / 5;
     min-height: 0;
     margin-bottom: 14px;
     border-radius: 12px;
+    overflow: hidden;            /* clip the cover crop to the rounded box */
+  }
+  /* Real portrait fills the box edge-to-edge, anchored toward the top. Absolute
+     positioning means the <img> can't influence the container's height. */
+  .team-card__photo-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 20%;
+    display: block;
   }
   .team-card__name {
     font-family: var(--font-display);

@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+import compPhoto from '../assets/competition-event.jpg';
 
 // What participants get from the competition.
 const benefits = [
@@ -39,9 +41,19 @@ const faqs = [
   <!-- THE COMPETITION — single detail block -->
   <section class="tight">
     <div class="afr-container">
-      <article class="comp card">
+      <article class="comp card reveal">
         <div class="comp__photo">
-          <span class="comp__badge">Needs: competition photo — pitch / showcase moment</span>
+          <Image
+            src={compPhoto}
+            alt="A packed university auditorium during an academic event"
+            class="comp__photo-img"
+            widths={[380, 560, 760, 1100, 1400]}
+            sizes="(max-width: 860px) 100vw, 380px"
+            quality={72}
+            format="webp"
+            loading="lazy"
+            decoding="async"
+          />
         </div>
         <div class="comp__body">
           <span class="badge badge-green">First cycle in planning</span>
@@ -83,19 +95,19 @@ const faqs = [
   <!-- FAQs -->
   <section style="background: var(--paper-warm);">
     <div class="afr-container">
-      <div class="faq-head">
+      <div class="faq-head reveal">
         <div class="eyebrow">FAQs</div>
         <h2 class="h2" style="margin: 8px 0 0;">How the competition works.</h2>
       </div>
-      <div class="faqs">
+      <div class="faqs" data-stagger>
         {faqs.map((f) => (
-          <div class="card faq">
+          <div class="card faq reveal">
             <h3 class="h3" style="font-size: 17px; margin: 0 0 8px;">{f.q}</h3>
             <p style="margin: 0; font-size: 14px; color: var(--ink-700);">{f.a}</p>
           </div>
         ))}
       </div>
-      <div class="faq-cta">
+      <div class="faq-cta reveal">
         <p style="margin: 0; color: var(--ink-700);">Still have a question, or want to know when entries open?</p>
         <a href="/contact" class="btn btn-primary">Get in touch <i data-lucide="arrow-right"></i></a>
       </div>
@@ -114,7 +126,15 @@ const faqs = [
       linear-gradient(135deg, #3B5A8E, #0048A8 60%, #002E6E);
     min-height: 360px;
   }
-  .comp__badge { position: absolute; bottom: 20px; left: 24px; right: 24px; font-family: var(--font-mono); font-size: 11px; color: rgba(255,255,255,0.85); }
+  .comp__photo-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
   .comp__body { padding: 44px 48px; }
 
   .comp__benefits { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
