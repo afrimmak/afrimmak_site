@@ -54,7 +54,11 @@ html, body { overflow-x: hidden; }
   box-shadow: 0 2px 6px rgba(10,26,51,0.08);
   transition: all 220ms var(--ease-out);
 }
-.card:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(10,26,51,0.10); }
+/* Hover-lift only where a real pointer exists, so a tap on mobile can't
+   leave a card stuck in the lifted state. Uses the design-system shadow token. */
+@media (hover: hover) {
+  .card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+}
 .card-feature { border: 2px solid var(--blue-500); border-radius: 24px; box-shadow: none; }
 .card-pop { background: var(--blue-500); color: white; border-radius: 32px; box-shadow: 0 12px 32px rgba(0,72,168,0.28); border: none; }
 
@@ -142,4 +146,24 @@ section.tight { padding: 64px 0; }
 }
 @media (max-width: 520px) {
   .afr-container { padding: 0 20px; }
+}
+
+/* ---------- Scroll reveal ----------
+   A section/card fades in with a small upward shift as it enters the viewport.
+   Hidden state is gated behind `.has-js` (added to <html> by an inline head
+   script) so that if JS never runs, content is always visible. The reveal
+   script (BaseLayout) toggles `.is-revealed` via IntersectionObserver. */
+.has-js .reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 500ms var(--ease-out), transform 500ms var(--ease-out);
+  will-change: opacity, transform;
+}
+.has-js .reveal.is-revealed {
+  opacity: 1;
+  transform: none;
+}
+/* Never leave content hidden for reduced-motion users, whatever the JS timing. */
+@media (prefers-reduced-motion: reduce) {
+  .has-js .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
 }

@@ -32,8 +32,8 @@ import heroPhoto from '../assets/hero-students.jpg';
       </h1>
 
       <p class="lede" style="margin-top: 24px; max-width: 540px;">
-        Afrimmak empowers young Africans through an entrepreneurship and
-        innovation competition — a platform to showcase ideas, find mentorship,
+        Afrimmak empowers young Africans through entrepreneurship and
+        innovation competitions — a platform to showcase ideas, find mentorship,
         connect with industry leaders, and compete for funding and support.
       </p>
 
@@ -93,6 +93,14 @@ import heroPhoto from '../assets/hero-students.jpg';
     border-radius: 28px;
     padding: 40px 44px 44px;
     box-shadow: 0 24px 64px rgba(10, 26, 51, 0.1);
+    /* Gentle one-off entrance on page load — the first thing every visitor
+       sees. One cohesive reveal (not staggered pieces). Reduced-motion users
+       get the near-instant version via the global rule in tokens.css. */
+    animation: hero-rise 600ms var(--ease-out) both;
+  }
+  @keyframes hero-rise {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: none; }
   }
   .hero__ctas {
     display: flex;

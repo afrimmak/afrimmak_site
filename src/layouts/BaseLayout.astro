@@ -45,6 +45,11 @@ const organizationSchema = {
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+    <!-- Marks JS as available BEFORE first paint so scroll-reveal start states
+         (.has-js .reveal { opacity: 0 }) only apply when JS can reveal them.
+         Without JS, content stays fully visible. -->
+    <script is:inline>document.documentElement.classList.add('has-js');</script>
+
     <!-- Fonts: preconnect warms up the TLS/DNS handshake before the stylesheet
          request (matters on slow connections); &display=swap keeps text visible
          while webfonts load. Kept out of tokens.css (@import is render-blocking). -->
@@ -138,6 +143,45 @@ const organizationSchema = {
         },
         attrs: { 'stroke-width': 1.75 },
       });
+    </script>
+
+    <!-- Scroll reveal: fade + small upward shift as sections enter view.
+         Vanilla IntersectionObserver, no library. Reveals once, then stops
+         observing. Honours prefers-reduced-motion by revealing immediately. -->
+    <script>
+      const items = document.querySelectorAll('.reveal');
+      const groups = document.querySelectorAll('[data-stagger]');
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      const revealNow = (el) => el.classList.add('is-revealed');
+
+      if (reduce || !('IntersectionObserver' in window)) {
+        // Reduced motion / no support: show everything immediately, no animation.
+        items.forEach(revealNow);
+      } else {
+        // Stagger direct .reveal children of a [data-stagger] group (~70ms apart).
+        groups.forEach((group) => {
+          const kids = group.querySelectorAll(':scope > .reveal');
+          kids.forEach((k, i) => { (k as HTMLElement).style.transitionDelay = (i * 70) + 'ms'; });
+        });
+
+        const io = new IntersectionObserver((entries, obs) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            const t = entry.target;
+            if (t.hasAttribute('data-stagger')) {
+              t.querySelectorAll(':scope > .reveal').forEach(revealNow);
+            } else {
+              revealNow(t);
+            }
+            obs.unobserve(t); // reveal once, then stop watching
+          });
+        }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+
+        // Observe standalone reveals individually; observe grids as one trigger.
+        items.forEach((el) => { if (!el.closest('[data-stagger]')) io.observe(el); });
+        groups.forEach((g) => io.observe(g));
+      }
     </script>
   </body>
 </html>

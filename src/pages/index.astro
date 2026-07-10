@@ -28,7 +28,7 @@ const benefits = [
   <!-- HOW IT WORKS -->
   <section class="tight" style="background: var(--paper-warm);">
     <div class="afr-container">
-      <div style="text-align: center; max-width: 620px; margin: 0 auto 56px;">
+      <div class="reveal" style="text-align: center; max-width: 620px; margin: 0 auto 56px;">
         <div class="eyebrow">How it works</div>
         <h2 class="h2" style="margin: 8px 0 12px;">From idea to impact.</h2>
         <p class="lede" style="margin: 0;">
@@ -36,9 +36,9 @@ const benefits = [
           stages — here's what that looks like.
         </p>
       </div>
-      <div class="steps-flow">
+      <div class="steps-flow" data-stagger>
         {steps.map((s, i) => (
-          <div class="step-flow">
+          <div class="step-flow reveal">
             <div class="step-flow__icon" style={`background: ${s.soft};`}>
               <i data-lucide={s.icon} style={`color: ${s.accent};`}></i>
               <span class="step-flow__num">{i + 1}</span>
@@ -53,19 +53,19 @@ const benefits = [
 
   <!-- THE COMPETITION -->
   <section>
-    <div class="afr-container comp-feature">
-      <div class="comp-feature__copy">
+    <div class="afr-container comp-feature" data-stagger>
+      <div class="comp-feature__copy reveal">
         <div class="eyebrow">Our work</div>
         <h2 class="h2" style="margin: 8px 0 16px;">One competition. Africa's next innovators.</h2>
         <p class="lede" style="margin: 0 0 16px; max-width: 520px;">
-          AFRIMMAK empowers young Africans through an entrepreneurship and
+          AFRIMMAK empowers young Africans through entrepreneurship and
           innovation competitions — a single platform where students and young
           entrepreneurs showcase their ideas and compete for the support to
           build them into sustainable ventures that solve real African problems.
         </p>
         <a href="/competition" class="btn btn-primary">Learn more <i data-lucide="arrow-right"></i></a>
       </div>
-      <div class="comp-feature__benefits">
+      <div class="comp-feature__benefits reveal">
         {benefits.map((b) => (
           <div class="card comp-feature__benefit">
             <div class="comp-feature__icon" style={`background: ${b.soft};`}>
@@ -83,8 +83,8 @@ const benefits = [
 
   <!-- PARTNERS STRIP -->
   <section style="background: var(--paper-warm);">
-    <div class="afr-container afr-partners">
-      <div>
+    <div class="afr-container afr-partners" data-stagger>
+      <div class="reveal">
         <div class="eyebrow">Partners</div>
         <h2 class="h2" style="margin: 8px 0 16px;">Building our partner network.</h2>
         <p class="lede" style="margin: 0 0 24px; max-width: 420px;">
@@ -93,7 +93,7 @@ const benefits = [
         </p>
         <a href="/partners" class="btn btn-primary">Partner with us <i data-lucide="arrow-right"></i></a>
       </div>
-      <div class="card home-partner">
+      <div class="card home-partner reveal">
         <div class="home-partner__logo">
           <img
             src="/assets/partners/startup-incubator-logo.png"
@@ -115,7 +115,7 @@ const benefits = [
 
   <!-- GET INVOLVED CTA -->
   <section class="tight" style="background: var(--afr-blue); color: white;">
-    <div class="afr-container" style="text-align: center;">
+    <div class="afr-container reveal" style="text-align: center;">
       <h2 class="h2" style="color: white; margin: 0 0 12px;">Want to be part of it?</h2>
       <p class="lede" style="color: rgba(255,255,255,0.85); max-width: 480px; margin: 0 auto 28px;">
         Learn how the competition works, or reach out to get involved — as a

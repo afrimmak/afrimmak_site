@@ -35,13 +35,13 @@ const benefits = [
 
   <section>
     <div class="afr-container">
-      <div style="text-align: center; margin-bottom: 48px;">
+      <div class="reveal" style="text-align: center; margin-bottom: 48px;">
         <div class="eyebrow">How we partner</div>
         <h2 class="h2" style="margin: 8px 0 0;">Four ways to get involved.</h2>
       </div>
-      <div class="types-grid">
+      <div class="types-grid" data-stagger>
         {types.map((t) => (
-          <div class="card type">
+          <div class="card type reveal">
             <div class="type__icon" style={`background: ${t.soft};`}>
               <i data-lucide={t.icon} style={`color: ${t.accent};`}></i>
             </div>
@@ -56,14 +56,14 @@ const benefits = [
   <!-- Partner network: one confirmed partner + an open invitation -->
   <section class="tight" style="background: var(--paper-warm);">
     <div class="afr-container">
-      <div style="text-align: center; margin-bottom: 40px;">
+      <div class="reveal" style="text-align: center; margin-bottom: 40px;">
         <div class="eyebrow">Our partner network</div>
         <h2 class="h2" style="margin: 8px 0 0;">Building our partner network.</h2>
       </div>
 
-      <div class="network">
+      <div class="network" data-stagger>
         <!-- Featured partner -->
-        <div class="card featured-partner">
+        <div class="card featured-partner reveal">
           <div class="featured-partner__logo">
             <img
               src="/assets/partners/startup-incubator-logo.png"
@@ -82,7 +82,7 @@ const benefits = [
         </div>
 
         <!-- Open invitation -->
-        <div class="card invite">
+        <div class="card invite reveal">
           <div class="invite__icon"><i data-lucide="handshake"></i></div>
           <h3 class="h3" style="font-size: 22px; margin: 16px 0 8px;">Your organisation could be here next.</h3>
           <p style="margin: 0 0 24px; color: var(--ink-700);">
@@ -97,8 +97,8 @@ const benefits = [
 
   <!-- Why partner -->
   <section>
-    <div class="afr-container why-grid">
-      <div>
+    <div class="afr-container why-grid" data-stagger>
+      <div class="reveal">
         <div class="eyebrow">Why partner with us</div>
         <h2 class="h2" style="margin: 8px 0 24px;">What you get from this.</h2>
         <div class="benefits">
@@ -113,7 +113,7 @@ const benefits = [
           ))}
         </div>
       </div>
-      <div class="card card-feature diaspora">
+      <div class="card card-feature diaspora reveal">
         <div class="eyebrow">Diaspora special</div>
         <h3 class="h3" style="margin: 8px 0 16px;">Gambians abroad, we see you.</h3>
         <p style="color: var(--ink-700); margin: 0 0 16px;">
@@ -133,7 +133,7 @@ const benefits = [
   <!-- CTA -->
   <section class="tight">
     <div class="afr-container">
-      <div class="card card-pop partner-cta">
+      <div class="card card-pop partner-cta reveal">
         <div>
           <h2 class="h2" style="color: white; margin: 0 0 8px;">Ready to partner?</h2>
           <p style="color: rgba(255,255,255,0.85); margin: 0; max-width: 460px;">
