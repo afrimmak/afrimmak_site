@@ -132,11 +132,12 @@ const enquiries = [
 
   <script>
     // ============================================================
-    //  ⚠️  CONTACT FORM ENDPOINT — REPLACE THIS PLACEHOLDER URL  ⚠️
-    //  Paste your deployed Google Apps Script Web App URL below.
+    //  CONTACT FORM ENDPOINT
+    //  Deployed Google Apps Script Web App URL (receives the POST and
+    //  writes each submission to the Google Sheet).
     //  This is the ONLY place the endpoint is defined.
     // ============================================================
-    const FORM_ENDPOINT = "https://script.google.com/macros/s/AKfycbzScqW03Urp00feubzGcDXzjuEVUDPB_QrIvS6o5kre7448qME8NLWRpz6qTBWEkoWC/exec"; // <-- PLACEHOLDER: replace with the real URL
+    const FORM_ENDPOINT = "https://script.google.com/macros/s/AKfycbzScqW03Urp00feubzGcDXzjuEVUDPB_QrIvS6o5kre7448qME8NLWRpz6qTBWEkoWC/exec";
 
     const form = document.getElementById('contact-form');
     if (form) {
